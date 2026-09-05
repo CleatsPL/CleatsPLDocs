@@ -4,9 +4,9 @@
 --ink: #101012;
 --void: #060607;
 --fog: #8e8c88;
---gold: #c8a24a;
---gold-deep: #9a7526;
---gold-bright: #e0bd6a;
+--gold: #d4af37;
+--gold-deep: #8a6a17;
+--gold-bright: #f2d98a;
 --amber: var(--gold);
 --red: #c1121f;
 --red-bright: #e63946;
@@ -80,7 +80,7 @@ pointer-events: none
 display: block;
 width: 100%;
 height: 100%;
-background: linear-gradient(90deg, var(--red) 0%, var(--red-bright) 45%, var(--gold) 100%);
+background: linear-gradient(90deg, var(--red) 0%, var(--red-bright) 70%, var(--gold-bright) 100%);
 transform: scaleX(0);
 transform-origin: left
 }
@@ -301,7 +301,7 @@ transition: opacity .4s cubic-bezier(.2, .8, .2, 1), transform .4s cubic-bezier(
 }
 .hero-light {
 inset: -10%;
-background: radial-gradient(circle at var(--lx) var(--ly), rgba(255, 236, 196, .92) 0, rgba(224, 189, 106, .42) 19%, rgba(200, 162, 74, .12) 35%, transparent 58%);
+background: radial-gradient(circle at var(--lx) var(--ly), rgba(255, 244, 214, .88) 0, rgba(242, 217, 138, .34) 16%, rgba(193, 18, 31, .22) 34%, transparent 60%);
 mix-blend-mode: screen;
 opacity: var(--scene-glow)
 }
@@ -313,7 +313,7 @@ opacity: var(--night-opacity)
 .hero-beam {
 inset: -12%;
 clip-path: polygon(58% 0, 83% 0, 70% 100%, 24% 100%);
-background: linear-gradient(118deg, transparent 10%, rgba(255, 230, 180, .28) 48%, rgba(200, 162, 74, .05) 80%);
+background: linear-gradient(118deg, transparent 10%, rgba(255, 240, 200, .28) 48%, rgba(212, 175, 55, .05) 80%);
 mix-blend-mode: screen;
 opacity: var(--beam-opacity)
 }
@@ -378,7 +378,7 @@ padding: .04em .06em .12em 0
 .hero h1>.accent {
 color: var(--amber);
 margin-left: clamp(22px, 5.5vw, 88px);
-text-shadow: 0 0 var(--title-glow) rgba(200, 162, 74, .75), 0 0 calc(var(--title-glow) * 2) rgba(193, 18, 31, .35)
+text-shadow: 0 0 var(--title-glow) rgba(230, 57, 70, .8), 0 0 calc(var(--title-glow) * 2.2) rgba(212, 175, 55, .3)
 }
 .hero-char {
 display: inline-block;
@@ -414,8 +414,8 @@ font-weight: 400;
 transition: .3s
 }
 .hero-cta:hover {
-color: var(--gold-bright);
-border-bottom-color: var(--gold-bright)
+color: var(--red-bright);
+border-bottom-color: var(--red-bright)
 }
 .hero-cta:hover b {
 transform: translateX(6px)
@@ -560,7 +560,7 @@ border-radius: 50%
 }
 .premise-signal i:nth-child(2) {
 inset: 17%;
-border-color: rgba(200, 162, 74, .78)
+border-color: rgba(212, 175, 55, .78)
 }
 .premise-signal i:nth-child(3) {
 inset: 36%;
@@ -667,7 +667,7 @@ transform: translateY(-50%)
 display: block;
 width: 100%;
 height: 100%;
-background: linear-gradient(180deg, var(--red), var(--gold));
+background: linear-gradient(180deg, var(--red-bright), var(--red) 65%, var(--gold));
 transform: scaleY(0);
 transform-origin: top
 }
@@ -776,8 +776,8 @@ transform: translateY(-50%)
 display: block;
 width: 1px;
 height: 100%;
-background: linear-gradient(180deg, var(--gold-bright), var(--red));
-box-shadow: 0 0 12px rgba(200, 162, 74, .5);
+background: linear-gradient(180deg, var(--red-bright), var(--red) 62%, var(--gold));
+box-shadow: 0 0 12px rgba(193, 18, 31, .55);
 transform: scaleY(0);
 transform-origin: top
 }
@@ -834,7 +834,7 @@ display: flex;
 justify-content: space-between
 }
 .quiet-time {
-color: var(--gold-bright)
+color: var(--red-bright)
 }
 .quiet-copy {
 position: absolute;
@@ -880,8 +880,8 @@ transform: translateY(-50%)
 display: block;
 width: 1px;
 height: 100%;
-background: linear-gradient(180deg, var(--gold-bright), var(--red));
-box-shadow: 0 0 12px rgba(200, 162, 74, .5);
+background: linear-gradient(180deg, var(--red-bright), var(--red) 62%, var(--gold));
+box-shadow: 0 0 12px rgba(193, 18, 31, .55);
 transform: scaleY(0);
 transform-origin: top
 }
@@ -892,7 +892,7 @@ left: clamp(20px, 4vw, 64px);
 top: 50%;
 transform: translateY(-50%) rotate(-90deg);
 transform-origin: left top;
-color: rgba(200, 162, 74, .7)
+color: rgba(244, 242, 238, .5)
 }
 .system {
 background: linear-gradient(180deg, var(--ink), var(--void));
@@ -943,7 +943,7 @@ color: var(--gold-bright)
 box-shadow: inset 3px 0 0 var(--red)
 }
 .module:hover h3 {
-color: var(--gold-bright)
+color: var(--red-bright)
 }
 .module h3 {
 font-size: clamp(25px, 2.4vw, 36px);
@@ -1099,7 +1099,7 @@ right: 8vw;
 top: 42vh;
 background: var(--ink);
 color: var(--bone);
-border-color: rgba(200, 162, 74, .34);
+border-color: rgba(212, 175, 55, .34);
 box-shadow: 0 35px 90px rgba(6, 6, 7, .5)
 }
 .space-card:nth-of-type(3) {
@@ -1107,12 +1107,15 @@ left: 20vw;
 top: 40vh;
 min-height: min(38vh, 340px);
 height: auto;
-background: linear-gradient(145deg, var(--gold-bright), var(--gold) 52%, var(--gold-deep));
-border-color: rgba(16, 16, 18, .35);
-color: #14140f
+background: linear-gradient(145deg, #a50f1a, var(--red) 52%, #6d0a12);
+border-color: rgba(212, 175, 55, .5);
+color: var(--bone)
+}
+.space-card:nth-of-type(3) h3 {
+color: var(--gold-bright)
 }
 .space-card:nth-of-type(3) p {
-color: #3d3520
+color: rgba(244, 242, 238, .76)
 }
 .space-card h3 {
 font-size: clamp(26px, 3.4vw, 54px);
@@ -1151,7 +1154,8 @@ opacity: .45
 transform: translateZ(42px)
 }
 .space-card:nth-of-type(3) .space-visual span {
-border-color: var(--ink)
+border-color: var(--gold-bright);
+opacity: .8
 }
 .spatial-axis {
 position: absolute;
@@ -1159,7 +1163,7 @@ left: 50%;
 top: 0;
 bottom: 0;
 width: 1px;
-background: linear-gradient(transparent, var(--red) 35%, var(--gold) 65%, transparent);
+background: linear-gradient(transparent, var(--red) 30%, var(--red-bright) 55%, var(--gold) 78%, transparent);
 opacity: .55
 }
 .presence {
@@ -1217,7 +1221,7 @@ flex-direction: column;
 justify-content: center;
 padding: 14px 18px;
 border: 1px solid var(--amber);
-background: rgba(200, 162, 74, .08);
+background: rgba(212, 175, 55, .08);
 border-radius: 6px;
 min-width: 145px;
 flex: 0 0 auto
@@ -1271,7 +1275,7 @@ margin-top: 16px
 .signal-meter i {
 display: block;
 height: 100%;
-background: linear-gradient(90deg, var(--red), var(--gold-bright));
+background: linear-gradient(90deg, var(--red) 0%, var(--red-bright) 72%, var(--gold-bright) 100%);
 transition: width .28s cubic-bezier(.2, .8, .2, 1)
 }
 .mode-buttons {
@@ -1292,13 +1296,14 @@ cursor: pointer;
 transition: .3s
 }
 .mode-buttons button:hover {
-color: var(--gold-bright);
-border-color: rgba(200, 162, 74, .5)
+color: var(--red-bright);
+border-color: rgba(230, 57, 70, .5)
 }
 .mode-buttons button.active {
-background: var(--gold);
-color: #0a0a0c;
-border-color: var(--gold);
+background: var(--red);
+color: #fff;
+border-color: var(--red);
+box-shadow: 0 0 0 1px rgba(212, 175, 55, .55);
 font-weight: 700
 }
 .lab {
@@ -1353,15 +1358,18 @@ background: var(--ink);
 color: var(--bone)
 }
 .lab-card.amber {
-background: linear-gradient(145deg, var(--gold-bright), var(--gold) 55%, var(--gold-deep));
-border-color: rgba(16, 16, 18, .3);
-color: #14140f
+background: linear-gradient(145deg, #a50f1a, var(--red) 55%, #6d0a12);
+border-color: rgba(212, 175, 55, .45);
+color: var(--bone)
+}
+.lab-card.amber h3 {
+color: var(--gold-bright)
 }
 .lab-card.amber p {
-color: #3d3520
+color: rgba(244, 242, 238, .78)
 }
 .lab-card.dark {
-border-color: rgba(200, 162, 74, .3)
+border-color: rgba(212, 175, 55, .3)
 }
 .lab-card-top {
 display: flex;
@@ -1555,7 +1563,7 @@ text-shadow: 0 0 60px rgba(193, 18, 31, .45)
 }
 .kinetic-word:nth-child(3) {
 color: transparent;
--webkit-text-stroke: 1px rgba(200, 162, 74, .85)
+-webkit-text-stroke: 1px rgba(244, 242, 238, .8)
 }
 .kinetic-beam {
 position: absolute;
@@ -1564,8 +1572,8 @@ left: 8vw;
 right: 8vw;
 top: 62%;
 height: 2px;
-background: linear-gradient(90deg, transparent, var(--red) 22%, var(--gold-bright) 55%, var(--red) 82%, transparent);
-box-shadow: 0 0 38px rgba(200, 162, 74, .55), 0 0 70px rgba(193, 18, 31, .35);
+background: linear-gradient(90deg, transparent, var(--red) 18%, var(--red-bright) 40%, var(--gold-bright) 52%, var(--red-bright) 64%, var(--red) 84%, transparent);
+box-shadow: 0 0 38px rgba(193, 18, 31, .6), 0 0 70px rgba(212, 175, 55, .3);
 transform: scaleX(.08)
 }
 .kinetic-caption {
@@ -1618,7 +1626,7 @@ line-height: 1.6
 display: grid;
 grid-template-columns: repeat(3, 1fr);
 border-top: 2px solid transparent;
-border-image: linear-gradient(90deg, var(--red), var(--gold) 70%, transparent) 1
+border-image: linear-gradient(90deg, var(--red) 0%, var(--red-bright) 55%, var(--gold) 82%, transparent) 1
 }
 .card {
 min-height: 360px;
@@ -1668,7 +1676,7 @@ transform: rotate(45deg)
 .card:nth-child(3) .glyph i {
 width: 3px;
 height: 118px;
-background: linear-gradient(180deg, var(--red), var(--gold));
+background: linear-gradient(180deg, var(--red-bright), var(--red) 65%, var(--gold));
 border: 0
 }
 .card:hover .glyph i {
@@ -1697,7 +1705,7 @@ padding: 0 0 clamp(110px, 14vw, 200px)
 }
 .metrics-head {
 border-top: 2px solid transparent;
-border-image: linear-gradient(90deg, var(--red), var(--gold) 70%, transparent) 1;
+border-image: linear-gradient(90deg, var(--red) 0%, var(--red-bright) 55%, var(--gold) 82%, transparent) 1;
 padding: 22px 0 50px;
 display: flex;
 justify-content: space-between
@@ -1722,21 +1730,24 @@ overflow: hidden
 grid-row: 1/3;
 background: linear-gradient(160deg, #16161a, var(--void));
 color: var(--bone);
-border-color: rgba(200, 162, 74, .28)
+border-color: rgba(212, 175, 55, .28)
 }
 .metric:first-child .metric-value {
-color: var(--gold-bright)
-}
-.metric:first-child small {
 color: var(--red-bright)
 }
+.metric:first-child small {
+color: var(--gold-bright)
+}
 .metric.amber {
-background: linear-gradient(150deg, var(--gold-bright), var(--gold) 55%, var(--gold-deep));
-border-color: rgba(16, 16, 18, .3);
-color: #14140f
+background: linear-gradient(150deg, #a50f1a, var(--red) 55%, #6d0a12);
+border-color: rgba(212, 175, 55, .45);
+color: var(--bone)
+}
+.metric.amber .metric-value {
+color: var(--gold-bright)
 }
 .metric.amber p {
-color: #3d3520
+color: rgba(244, 242, 238, .78)
 }
 .metric-value {
 font-size: clamp(58px, 8vw, 118px);
@@ -1820,8 +1831,10 @@ line-height: 1.65;
 justify-self: end
 }
 .final {
-background: linear-gradient(150deg, var(--gold-bright) 0%, var(--gold) 46%, var(--gold-deep) 100%);
-color: #14140f;
+background: linear-gradient(150deg, #a50f1a 0%, var(--red) 45%, #6d0a12 100%);
+color: var(--bone);
+border-top: 2px solid var(--gold);
+border-bottom: 2px solid var(--gold);
 min-height: 86vh;
 display: flex;
 flex-direction: column;
@@ -1844,21 +1857,21 @@ margin: auto 0 0
 .final h2 span {
 display: block;
 margin-left: 11vw;
-color: var(--red-deep)
+color: var(--gold-bright)
 }
 .final:before {
 content: "";
 position: absolute;
 inset: 0;
 pointer-events: none;
-background: radial-gradient(120% 80% at 82% 8%, rgba(255, 255, 255, .3), transparent 55%)
+background: radial-gradient(120% 80% at 82% 8%, rgba(242, 217, 138, .16), transparent 55%)
 }
 .final-bottom {
 display: flex;
 justify-content: space-between;
 align-items: end;
 gap: 30px;
-border-top: 1px solid var(--ink);
+border-top: 1px solid rgba(242, 217, 138, .45);
 padding-top: 23px
 }
 .final-bottom p {
@@ -1869,29 +1882,30 @@ line-height: 1.55
 width: 124px;
 aspect-ratio: 1;
 border-radius: 50%;
-border: 1px solid var(--ink);
+border: 1px solid var(--gold);
+color: var(--gold-bright);
 display: grid;
 place-items: center;
 font-size: 30px;
 transition: .35s
 }
 .round-cta:hover {
-background: var(--red);
-border-color: var(--red);
-color: var(--gold-bright);
+background: var(--gold);
+border-color: var(--gold);
+color: #6d0a12;
 transform: rotate(-18deg)
 }
 footer {
 background: var(--void);
 color: var(--bone);
 padding: 32px 0;
-border-top: 1px solid rgba(200, 162, 74, .3)
+border-top: 1px solid rgba(212, 175, 55, .3)
 }
 .foot nav a {
 transition: color .25s
 }
 .foot nav a:hover {
-color: var(--gold-bright)
+color: var(--red-bright)
 }
 .foot {
 display: flex;

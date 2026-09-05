@@ -53,14 +53,14 @@ export default function Field() {
               Math.cos(x * 0.004 - t * 0.0004 + i) * 5;
             ctx.lineTo(x, y + wave + pull);
           }
-          const gold = i % 5 === 0;
-          const red = !gold && i % 5 === 2;
+          const gold = i % 9 === 0;
+          const red = !gold && i % 3 === 1;
           ctx.strokeStyle = gold
-            ? `rgba(200,162,74,${0.2 + fieldState.energy * 0.24})`
+            ? `rgba(242,217,138,${0.22 + fieldState.energy * 0.26})`
             : red
-              ? `rgba(193,18,31,${0.14 + fieldState.energy * 0.3})`
+              ? `rgba(193,18,31,${0.16 + fieldState.energy * 0.34})`
               : `rgba(244,242,238,${0.035 + fieldState.energy * 0.055})`;
-          ctx.lineWidth = gold ? 1.25 : red ? 1 : 0.75;
+          ctx.lineWidth = gold ? 1.3 : red ? 1.1 : 0.7;
           ctx.stroke();
         }
       }
