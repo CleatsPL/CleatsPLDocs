@@ -3,7 +3,7 @@ export default function Kinetic() {
     <section className="kinetic" id="language">
       <div className="kinetic-stage">
         <div className="kinetic-meta">
-          <div className="section-tag mono">09 / The whole loop, three words</div>
+          <div className="section-tag mono">09 / The loop</div>
           <span className="mono">Project / Solve / Commit</span>
         </div>
         <div className="kinetic-words" aria-label="Project. Solve. Commit.">

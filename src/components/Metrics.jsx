@@ -7,7 +7,7 @@ export default function Metrics() {
       </div>
       <div className="metrics-grid">
         <article className="metric">
-          <small>Lookahead distance to tune</small>
+          <small>Lookahead to tune</small>
           <div className="metric-value">
             <span data-count="0">0</span>
           </div>
@@ -15,7 +15,7 @@ export default function Metrics() {
           <i className="metric-orbit" aria-hidden="true" />
         </article>
         <article className="metric amber">
-          <small>Weeks of guess-and-check tuning</small>
+          <small>Weeks of tuning</small>
           <div className="metric-value">
             <span data-count="0">0</span>
           </div>
@@ -29,7 +29,7 @@ export default function Metrics() {
           <p>A superellipse in the robot frame gives a true limit for every heading.</p>
         </article>
         <article className="metric">
-          <small>Converged axes required to finish</small>
+          <small>Axes that must converge</small>
           <div className="metric-value">
             <span data-count="2">0</span>
           </div>

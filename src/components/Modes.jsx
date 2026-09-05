@@ -22,7 +22,7 @@ export default function Modes() {
       <div className="modes-title">
         <div>
           <div className="section-tag mono reveal" style={{ marginBottom: 28 }}>
-            10 / Controller states
+            10 / Controllers
           </div>
           <h2 className="reveal">
             Three states.

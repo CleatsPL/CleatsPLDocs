@@ -20,7 +20,7 @@ export default function Lab() {
           </div>
           <div className="lab-card-content">
             <div className="lab-copy">
-              <h3>Quintic Hermite splines.</h3>
+              <h3>Quintic splines.</h3>
               <p>The lowest-order curve that matches position, tangent and curvature at every waypoint — so acceleration never jumps at a boundary and no speed is shed for a kink in the route.</p>
             </div>
             <div className="lab-visual">
@@ -74,7 +74,7 @@ export default function Lab() {
           </div>
           <div className="lab-card-content">
             <div className="lab-copy">
-              <h3>Arcs, not straight lines.</h3>
+              <h3>True arcs.</h3>
               <p>Odometry is integrated along true arcs of motion rather than straight-line approximations, filtered with outlier rejection so one bad encoder read never corrupts the estimate.</p>
             </div>
             <div className="lab-visual">

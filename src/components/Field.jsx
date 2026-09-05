@@ -100,9 +100,9 @@ export default function Field() {
       </div>
       <div className="field-copy reveal">
         <div className="section-tag mono" style={{ justifyContent: 'center' }}>
-          05 / The control field
+          05 / Control field
         </div>
-        <h2>The field it actually solves.</h2>
+        <h2>The field it solves.</h2>
         <p>Every loop: project onto the spline, read the directional acceleration limit, command the maximum the tires will hold.</p>
       </div>
     </section>
