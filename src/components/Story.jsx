@@ -1,18 +1,18 @@
 const panels = [
   {
-    kicker: '06:42 / Arrive',
-    title: 'The room wakes first.',
-    copy: 'Before a command is spoken, ECHO softens the light, holds the temperature and leaves the morning quiet.',
+    kicker: 'Stage 01 / Geometry',
+    title: 'Quintic splines.',
+    copy: 'The lowest-order curve that can match position, tangent and curvature at every waypoint. Acceleration never jumps across a segment boundary, so the robot is never forced to shed speed for a kink in the geometry.',
   },
   {
-    kicker: '13:18 / Understand',
-    title: 'Context, not surveillance.',
-    copy: 'It understands that “turn it down” means the music—not the lights—without building an identity profile.',
+    kicker: 'Stage 02 / Tracking',
+    title: 'No lookahead.',
+    copy: 'A lookahead distance is a tunable fudge factor that cuts corners and trades accuracy for smoothness. Cleats projects the robot onto the nearest point of the spline instead — tangential drive blended with a perpendicular correction that scales with actual cross-track error.',
   },
   {
-    kicker: '23:06 / Recede',
-    title: 'Then it disappears.',
-    copy: 'At rest, the acoustic path closes mechanically and the amber seam goes dark. Presence becomes absence.',
+    kicker: 'Stage 03 / Arrival',
+    title: 'The LQR lands it.',
+    copy: 'Time-optimal transit hands off to an optimal state-feedback controller that treats position, strafe and heading as one coupled system, driving residual error continuously to zero rather than oscillating around it.',
   },
 ];
 
@@ -21,12 +21,12 @@ export default function Story() {
     <section className="story" id="story">
       <div className="story-stage">
         <div className="story-media">
-          <img src="/assets/echo01-story-rain.jpg" alt="ECHO/01 in a rain-lit brutalist living room" loading="lazy" />
+          <img src="/assets/echo01-story-rain.jpg" alt="A robot tracking a spline path across the field" loading="lazy" />
         </div>
         <div className="story-top">
-          <div className="section-tag mono">02 / A day with ECHO</div>
+          <div className="section-tag mono">02 / Anatomy</div>
           <div className="story-index">
-            <span>CHAPTER</span>
+            <span>STAGE</span>
             <b id="storyIndex">01</b>
           </div>
         </div>

@@ -4,14 +4,14 @@ export default function Footer() {
       <div className="wrap foot">
         <a className="brand" href="#top">
           <span className="brandmark" aria-hidden="true" />
-          <span>ECHO/01</span>
+          <span>CLEATS</span>
         </a>
         <nav>
-          <a href="#">Privacy</a>
-          <a href="#">Materials</a>
-          <a href="#">Press</a>
+          <a href="#system">Docs</a>
+          <a href="#lab">Internals</a>
+          <a href="#modes">Controllers</a>
           <span>
-            © <b id="year">{new Date().getFullYear()}</b> ECHO Object Co.
+            © <b id="year">{new Date().getFullYear()}</b> Cleats Path Library
           </span>
         </nav>
       </div>

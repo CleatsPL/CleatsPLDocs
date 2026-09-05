@@ -64,7 +64,7 @@ export function useEchoMotion(rootRef) {
       const premiseBeats = gsap.utils.toArray('.premise-beat');
       const premiseStep = document.getElementById('premiseStep');
       const premiseMeter = document.getElementById('premiseMeter');
-      const premiseLabels = ['01 — Listen', '02 — Understand', '03 — Recede'];
+      const premiseLabels = ['01 — The lag', '02 — The reframe', '03 — The result'];
       let premiseIndex = 0;
       gsap.set(premiseBeats.slice(1), { opacity: 0, y: 48, rotateX: -10 });
 
@@ -135,7 +135,7 @@ export function useEchoMotion(rootRef) {
       const quietBeats = gsap.utils.toArray('.quiet-beat');
       const quietMeter = document.getElementById('quietMeter');
       const quietTime = document.getElementById('quietTime');
-      const quietTimes = ['06:42', '13:18', '23:06'];
+      const quietTimes = ['ACCEL', 'SUSTAIN', 'BRAKE'];
       let quietIndex = 0;
       gsap.set([...quietShots.slice(1), ...quietBeats.slice(1)], { opacity: 0 });
 

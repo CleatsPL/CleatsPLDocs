@@ -2,20 +2,20 @@ export default function Final() {
   return (
     <section className="final" id="reserve">
       <div className="wrap final-top">
-        <span className="mono">Series 01 / 600 units</span>
-        <span className="mono">Autumn 2026</span>
+        <span className="mono">Cleats / FTC path following</span>
+        <span className="mono">Open source</span>
       </div>
       <h2 className="wrap">
-        Make room.
-        <span>Not noise.</span>
+        Stop lagging.
+        <span>Start solving.</span>
       </h2>
       <div className="wrap final-bottom">
         <p>
-          Request early access to ECHO/01.
+          Install Cleats, run the characterization routines,
           <br />
-          Founding edition from CAD $840.
+          and let the library find your robot’s real limits.
         </p>
-        <a className="round-cta" href="mailto:hello@echo01.studio" aria-label="Request early access">
+        <a className="round-cta" href="#top" aria-label="Get started with Cleats">
           ↗
         </a>
       </div>

@@ -53,11 +53,14 @@ export default function Field() {
               Math.cos(x * 0.004 - t * 0.0004 + i) * 5;
             ctx.lineTo(x, y + wave + pull);
           }
-          ctx.strokeStyle =
-            i % 5 === 0
-              ? `rgba(231,169,74,${0.14 + fieldState.energy * 0.18})`
-              : `rgba(237,233,223,${0.035 + fieldState.energy * 0.055})`;
-          ctx.lineWidth = i % 5 === 0 ? 1.15 : 0.75;
+          const gold = i % 9 === 0;
+          const red = !gold && i % 3 === 1;
+          ctx.strokeStyle = gold
+            ? `rgba(242,217,138,${0.22 + fieldState.energy * 0.26})`
+            : red
+              ? `rgba(193,18,31,${0.16 + fieldState.energy * 0.34})`
+              : `rgba(244,242,238,${0.035 + fieldState.energy * 0.055})`;
+          ctx.lineWidth = gold ? 1.3 : red ? 1.1 : 0.7;
           ctx.stroke();
         }
       }
@@ -78,29 +81,29 @@ export default function Field() {
     <section className="field" id="field" ref={sectionRef}>
       <canvas id="signalCanvas" ref={canvasRef} aria-hidden="true" />
       <div className="field-corners mono">
-        <span className="live-dot">Live field</span>
+        <span className="live-dot">Live solve</span>
         <span>
-          Latency
+          Cross-track error
           <br />
-          0.8 ms
+          Annihilated
         </span>
         <span>
-          On-device
+          Lookahead
           <br />
-          24h calm
+          None
         </span>
         <span>
-          Local process
+          Odometry
           <br />
-          Encrypted
+          True arcs
         </span>
       </div>
       <div className="field-copy reveal">
         <div className="section-tag mono" style={{ justifyContent: 'center' }}>
-          04 / Spatial signal
+          05 / Control field
         </div>
-        <h2>You can almost see the quiet.</h2>
-        <p>A room listening to its own shape—presence without a screen in the way.</p>
+        <h2>The field it solves.</h2>
+        <p>Every loop: project onto the spline, read the directional acceleration limit, command the maximum the tires will hold.</p>
       </div>
     </section>
   );

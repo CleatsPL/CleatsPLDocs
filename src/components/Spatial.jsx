@@ -1,18 +1,18 @@
 const cards = [
   {
-    kicker: 'Z + 01 / Geometry',
-    title: 'Edges become context.',
-    copy: 'Reflections reveal distance and orientation without creating a camera image.',
+    kicker: 'Heading / Decoupled',
+    title: 'Not geometry.',
+    copy: 'Hold it constant, interpolate it linearly or exponentially, aim it permanently at a field point, take it deliberately the long way around, or leave it tangent to the path.',
   },
   {
-    kicker: 'Z + 02 / Rhythm',
-    title: 'Motion without identity.',
-    copy: 'Patterns exist for milliseconds—long enough to understand, never long enough to profile.',
+    kicker: 'Convergence / Both axes',
+    title: 'Finished means finished.',
+    copy: 'A movement is not complete until position and heading have both converged. The robot will rotate in place to close out a turn rather than ending a path pointed the wrong way.',
   },
   {
-    kicker: 'Z + 03 / Intent',
-    title: 'The useful layer remains.',
-    copy: 'A simple signal survives: occupied, calm, asking, done.',
+    kicker: 'Recovery / Live replan',
+    title: 'Replan live.',
+    copy: 'Splines can be told to replan themselves live, rebuilding from the robot’s actual pose the moment it strays beyond a per-path tolerance.',
   },
 ];
 
@@ -22,11 +22,12 @@ export default function Spatial() {
       <div className="spatial-stage">
         <div className="spatial-head">
           <div>
-            <div className="section-tag mono">05 / Spatial memory</div>
-            <h2>A room with depth.</h2>
+            <div className="section-tag mono">06 / Heading</div>
+            <h2>Point anywhere.</h2>
           </div>
           <p>
-            Each plane is local, temporary and designed to dissolve—geometry, rhythm, then the useful remainder.
+            Where the robot faces is a separate problem from where the robot goes — and Cleats refuses to let one
+            compromise the other.
           </p>
         </div>
         <div className="spatial-world">
