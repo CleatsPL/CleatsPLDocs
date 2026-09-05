@@ -601,14 +601,15 @@ right: clamp(20px, 4vw, 64px);
 bottom: clamp(52px, 9vh, 104px);
 top: 200px;
 height: auto;
-display: flex;
-align-items: flex-end;
 perspective: 900px
 }
 .premise-beat {
 position: absolute;
-left: 0;
-bottom: 0;
+inset: 0;
+display: flex;
+flex-direction: column;
+justify-content: flex-end;
+align-items: flex-start;
 max-width: min(61vw, 900px);
 opacity: 0;
 transform-origin: left bottom
@@ -621,11 +622,11 @@ color: #8f6d1f
 }
 .premise-beat h2 {
 font-weight: 400;
-font-size: clamp(40px, 5.8vw, 92px);
-line-height: .9;
-letter-spacing: -.06em;
+font-size: clamp(38px, 5.2vw, 80px);
+line-height: .92;
+letter-spacing: -.055em;
 margin: 15px 0 20px;
-max-width: 13ch;
+max-width: 15ch;
 overflow-wrap: break-word
 }
 .premise-beat h2 em {
@@ -745,15 +746,17 @@ z-index: 4;
 left: clamp(20px, 7vw, 110px);
 right: clamp(20px, 4vw, 64px);
 bottom: clamp(48px, 9vh, 100px);
-top: 210px;
+top: 200px;
 height: auto;
-display: flex;
-align-items: flex-end;
 pointer-events: none
 }
 .story-panel {
 position: absolute;
-inset: auto 0 0;
+inset: 0;
+display: flex;
+flex-direction: column;
+justify-content: flex-end;
+align-items: flex-start;
 opacity: 0;
 transform: translateY(35px);
 pointer-events: none
@@ -873,15 +876,17 @@ z-index: 4;
 left: clamp(20px, 7vw, 110px);
 right: clamp(20px, 4vw, 64px);
 bottom: clamp(50px, 9vh, 105px);
-top: 210px;
+top: 200px;
 height: auto;
-display: flex;
-align-items: flex-end;
 pointer-events: none
 }
 .quiet-beat {
 position: absolute;
-inset: auto 0 0;
+inset: 0;
+display: flex;
+flex-direction: column;
+justify-content: flex-end;
+align-items: flex-start;
 opacity: 0;
 pointer-events: auto
 }
@@ -889,12 +894,12 @@ pointer-events: auto
 opacity: 1
 }
 .quiet-beat h2 {
-font-size: clamp(42px, 6.4vw, 104px);
-line-height: .88;
-letter-spacing: -.065em;
+font-size: clamp(40px, 5.4vw, 84px);
+line-height: .92;
+letter-spacing: -.055em;
 font-weight: 400;
 margin: 12px 0 20px;
-max-width: 13ch;
+max-width: 15ch;
 overflow-wrap: break-word
 }
 .quiet-beat p {
@@ -2436,6 +2441,8 @@ display: block
 }
 .story-panel {
 position: static;
+inset: auto;
+display: block;
 opacity: 1;
 transform: none;
 margin-bottom: 55px
@@ -2468,6 +2475,8 @@ margin-top: 60px
 }
 .quiet-beat {
 position: static;
+inset: auto;
+display: block;
 opacity: 1;
 margin-bottom: 60px
 }
@@ -2635,6 +2644,8 @@ perspective: none
 }
 .premise-beat {
 position: static;
+inset: auto;
+display: block;
 opacity: 1 !important;
 transform: none !important;
 margin-bottom: 70px;
