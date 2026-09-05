@@ -2,45 +2,45 @@ export default function Metrics() {
   return (
     <section className="metrics wrap">
       <div className="metrics-head">
-        <span className="section-tag mono">08 / Measured restraint</span>
-        <span className="mono">Production intent / Rev C</span>
+        <span className="section-tag mono">11 / What it removes</span>
+        <span className="mono">Measured, not guessed</span>
       </div>
       <div className="metrics-grid">
         <article className="metric">
-          <small>Far-field listening radius</small>
+          <small>Lookahead distance to tune</small>
           <div className="metric-value">
-            <span data-count="6">0</span>m
+            <span data-count="0">0</span>
           </div>
-          <p>A six-microphone array hears a conversational voice without raising the room. Beamforming stays on-device.</p>
+          <p>Cleats projects onto the nearest point of the spline instead of chasing a carrot. No corner cutting, no accuracy traded for smoothness.</p>
           <i className="metric-orbit" aria-hidden="true" />
         </article>
         <article className="metric amber">
-          <small>Response onset</small>
+          <small>Weeks of guess-and-check tuning</small>
           <div className="metric-value">
-            <span data-count="800">0</span>ms
+            <span data-count="0">0</span>
           </div>
-          <p>Fast enough to feel present, slow enough to feel considered.</p>
+          <p>Automated characterization runs derive the constants from your robot’s real physics.</p>
         </article>
         <article className="metric">
-          <small>Idle power</small>
+          <small>Acceleration limits modelled</small>
           <div className="metric-value">
-            <span data-count="2">0</span>.4w
+            <span data-count="360">0</span>°
           </div>
-          <p>Below a night light, including local awareness.</p>
+          <p>A superellipse in the robot frame gives a true limit for every heading.</p>
         </article>
         <article className="metric">
-          <small>Cloud dependency</small>
+          <small>Converged axes required to finish</small>
           <div className="metric-value">
-            <span data-count="0">0</span>%
+            <span data-count="2">0</span>
           </div>
-          <p>Core voice, routines and controls continue offline.</p>
+          <p>Position and heading both. The robot rotates in place rather than ending a path pointed wrong.</p>
         </article>
         <article className="metric">
-          <small>Replaceable mass</small>
+          <small>Throttle held until braking</small>
           <div className="metric-value">
-            <span data-count="97">0</span>%
+            <span data-count="100">0</span>%
           </div>
-          <p>Designed for disassembly with common tools.</p>
+          <p>A true kinematic braking model computes the exact stopping distance every loop.</p>
         </article>
       </div>
     </section>

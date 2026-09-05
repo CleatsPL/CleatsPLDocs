@@ -3,17 +3,17 @@ export default function Kinetic() {
     <section className="kinetic" id="language">
       <div className="kinetic-stage">
         <div className="kinetic-meta">
-          <div className="section-tag mono">08 / A three-word interface</div>
-          <span className="mono">Voice / Gesture / Absence</span>
+          <div className="section-tag mono">09 / The whole loop, three words</div>
+          <span className="mono">Project / Solve / Commit</span>
         </div>
-        <div className="kinetic-words" aria-label="Ask. Sense. Recede.">
-          <div className="kinetic-word">ASK</div>
-          <div className="kinetic-word">SENSE</div>
-          <div className="kinetic-word">RECEDE</div>
+        <div className="kinetic-words" aria-label="Project. Solve. Commit.">
+          <div className="kinetic-word">PROJECT</div>
+          <div className="kinetic-word">SOLVE</div>
+          <div className="kinetic-word">COMMIT</div>
         </div>
         <i className="kinetic-beam" aria-hidden="true" />
         <div className="kinetic-caption">
-          <p>From intention to understanding to quiet—then the object steps back.</p>
+          <p>Project onto the spline, solve for the time-optimal command, commit at the traction limit — every loop.</p>
           <span className="kinetic-step" id="kineticStep">
             01 / 03
           </span>

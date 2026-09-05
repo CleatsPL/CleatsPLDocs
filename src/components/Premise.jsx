@@ -1,30 +1,30 @@
 const beats = [
   {
-    kicker: 'Signal 01 / Restraint',
+    kicker: 'Premise 01 / The lag',
     title: (
       <>
-        Technology should know when <em>not</em> to speak.
+        A PID loop always chases a <em>moving setpoint.</em>
       </>
     ),
-    copy: 'ECHO begins with a refusal: no glowing rectangle, no feed, no new reason to look away from the room.',
+    copy: 'Conventional followers hand a setpoint to a feedback loop and, by construction, trail behind it forever. The error never reaches zero because the target never stops moving.',
   },
   {
-    kicker: 'Signal 02 / Context',
+    kicker: 'Premise 02 / The reframe',
     title: (
       <>
-        It senses the room—<em>never the person.</em>
+        Following is a <em>time-optimal</em> control problem.
       </>
     ),
-    copy: 'Shape, rhythm and tone become useful context. Identity never enters the system, and raw signals disappear in milliseconds.',
+    copy: 'Cleats does not chase. It solves for the fastest legal trajectory directly, so the drivetrain is either at its acceleration limit or its deceleration limit — and effectively nowhere in between.',
   },
   {
-    kicker: 'Signal 03 / Absence',
+    kicker: 'Premise 03 / The result',
     title: (
       <>
-        Then it gives your <em>attention back.</em>
+        The hardware becomes the <em>only limit.</em>
       </>
     ),
-    copy: 'A response arrives in 0.8 seconds. The aperture closes, the amber seam cools, and the interface leaves with the request.',
+    copy: 'Every constraint the robot obeys is a measured physical one: traction, acceleration envelope, braking distance. Nothing is left on the table by a tuning constant.',
   },
 ];
 
@@ -35,11 +35,11 @@ export default function Premise() {
         <div className="premise-top">
           <div className="section-tag mono">01 / Premise</div>
           <span className="premise-step mono" id="premiseStep">
-            01 — Listen
+            01 — The lag
           </span>
         </div>
         <div className="premise-word" aria-hidden="true">
-          LESS
+          FAST
         </div>
         <div className="premise-signal" aria-hidden="true">
           <i />
@@ -57,10 +57,10 @@ export default function Premise() {
           ))}
         </div>
         <div className="premise-stat">
-          <strong>0.8 s</strong>
-          Average response onset.
+          <strong>100%</strong>
+          Throttle held until the exact
           <br />
-          No wake screen. No dashboard.
+          instant braking becomes required.
         </div>
         <div className="premise-progress" aria-hidden="true">
           <i id="premiseMeter" />

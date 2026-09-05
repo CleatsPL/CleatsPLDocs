@@ -2,9 +2,9 @@ import { useState } from 'react';
 import gsap from 'gsap';
 
 const modes = [
-  { mode: 'HUSH', value: '18 dB / 2700 K', glow: '.22', level: '30', label: 'Hush' },
-  { mode: 'BALANCE', value: '34 dB / 3000 K', glow: '.42', level: '62', label: 'Balance' },
-  { mode: 'OPEN', value: '48 dB / 3400 K', glow: '.7', level: '100', label: 'Open' },
+  { mode: 'TANGENT', value: 'Heading follows the spline', glow: '.22', level: '48', label: 'Tangent' },
+  { mode: 'POINT-AT', value: 'Locked to a field coordinate', glow: '.42', level: '74', label: 'Point at' },
+  { mode: 'REPLAN', value: 'Regenerating from actual pose', glow: '.7', level: '100', label: 'Replan' },
 ];
 
 export default function Presence() {
@@ -19,17 +19,17 @@ export default function Presence() {
   return (
     <section className="presence" id="presence">
       <div className="presence-photo">
-        <img src="/assets/echo01-detail.jpg" alt="Close view of ECHO/01 ceramic shell and amber light seam" loading="lazy" />
+        <img src="/assets/echo01-detail.jpg" alt="Close view of a mecanum drivetrain under load" loading="lazy" />
       </div>
       <div className="presence-ui reveal">
-        <div className="section-tag mono">05 / Presence engine</div>
-        <h2>Set the room's frequency.</h2>
-        <p>ECHO changes its voice, response speed and status—not its personality.</p>
+        <div className="section-tag mono">07 / Heading engine</div>
+        <h2>Decoupled from the path.</h2>
+        <p>Heading is its own controller. Change how the robot faces without touching how the robot travels.</p>
         <div className="signal">
           <div className="signal-readout">
             <div className="signal-live mono">
               <i />
-              Live output
+              Live mode
             </div>
             <b id="modeName">{active.mode}</b>
             <span id="modeValue">{active.value}</span>
@@ -38,7 +38,7 @@ export default function Presence() {
             </div>
           </div>
         </div>
-        <div className="mode-buttons" role="group" aria-label="Presence mode">
+        <div className="mode-buttons" role="group" aria-label="Heading mode">
           {modes.map((item) => (
             <button
               key={item.mode}

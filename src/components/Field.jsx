@@ -81,29 +81,29 @@ export default function Field() {
     <section className="field" id="field" ref={sectionRef}>
       <canvas id="signalCanvas" ref={canvasRef} aria-hidden="true" />
       <div className="field-corners mono">
-        <span className="live-dot">Live field</span>
+        <span className="live-dot">Live solve</span>
         <span>
-          Latency
+          Cross-track error
           <br />
-          0.8 ms
+          Annihilated
         </span>
         <span>
-          On-device
+          Lookahead
           <br />
-          24h calm
+          None
         </span>
         <span>
-          Local process
+          Odometry
           <br />
-          Encrypted
+          True arcs
         </span>
       </div>
       <div className="field-copy reveal">
         <div className="section-tag mono" style={{ justifyContent: 'center' }}>
-          04 / Spatial signal
+          05 / The control field
         </div>
-        <h2>You can almost see the quiet.</h2>
-        <p>A room listening to its own shape—presence without a screen in the way.</p>
+        <h2>The field it actually solves.</h2>
+        <p>Every loop: project onto the spline, read the directional acceleration limit, command the maximum the tires will hold.</p>
       </div>
     </section>
   );

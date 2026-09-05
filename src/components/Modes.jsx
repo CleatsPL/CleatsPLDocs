@@ -1,18 +1,18 @@
 const cards = [
   {
-    no: '01 / LISTEN',
-    title: 'Near',
-    copy: 'For questions, cooking, planning and the soft logistics of an ordinary day.',
+    no: '01 / TRANSIT',
+    title: 'Sprint',
+    copy: 'Time-optimal solver at the wheel. At the acceleration limit or the deceleration limit, and effectively nowhere in between.',
   },
   {
-    no: '02 / FOCUS',
-    title: 'With',
-    copy: 'For shared work, deep listening and keeping a room in a single rhythm.',
+    no: '02 / SETTLE',
+    title: 'Land',
+    copy: 'A Linear Quadratic Regulator takes the handoff, treating position, strafe and heading as one coupled system and driving residual error continuously to zero.',
   },
   {
-    no: '03 / VANISH',
-    title: 'Away',
-    copy: 'Microphones close. Light disappears. The object becomes only an object again.',
+    no: '03 / RECOVER',
+    title: 'Reclaim',
+    copy: 'Hysteresis thresholds instantly return full transit authority the moment the robot is bumped or displaced.',
   },
 ];
 
@@ -22,16 +22,17 @@ export default function Modes() {
       <div className="modes-title">
         <div>
           <div className="section-tag mono reveal" style={{ marginBottom: 28 }}>
-            07 / States
+            10 / Controller states
           </div>
           <h2 className="reveal">
-            Three ways
+            Three states.
             <br />
-            to be there.
+            One handoff.
           </h2>
         </div>
         <p className="reveal">
-          Not an app store. Not a list of skills. Just three legible states for the moments a home actually has.
+          Cleats does not use one controller for the whole move. It uses the right one for the phase the robot is
+          actually in, and switches the instant the physics change.
         </p>
       </div>
       <div className="cards">

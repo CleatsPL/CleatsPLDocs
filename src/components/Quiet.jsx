@@ -1,24 +1,24 @@
 const shots = [
   {
     src: '/assets/echo01-quiet-morning.jpg',
-    alt: 'Overhead morning study of ECHO/01 on pale ash wood',
-    kicker: 'Morning / Anticipate',
-    title: 'Light before language.',
-    copy: 'The room is tuned before it is asked. Warmth arrives as a condition, never a notification.',
+    alt: 'Acceleration phase of a Cleats trajectory',
+    kicker: 'Phase / Accelerate',
+    title: 'Straight to the ceiling.',
+    copy: 'From the first loop the drivetrain is commanded at its real acceleration limit for the direction it is actually travelling — not a conservative scalar that fits every heading badly.',
   },
   {
     src: '/assets/echo01-quiet-midday.jpg',
-    alt: 'ECHO/01 in a graphic terracotta midday alcove',
-    kicker: 'Midday / Attend',
-    title: 'Focus has a shape.',
-    copy: 'ECHO holds the edges of your attention—lowering noise, pacing the room and keeping itself out of sight.',
+    alt: 'Cruise phase held at the traction limit',
+    kicker: 'Phase / Sustain',
+    title: 'Full throttle, held.',
+    copy: 'Cleats computes the exact distance required to stop on every single loop and refuses to lift until that instant arrives. There is no coast, no taper, no early surrender.',
   },
   {
     src: '/assets/echo01-quiet-night.jpg',
-    alt: 'ECHO/01 receding into an indigo room at night',
-    kicker: 'Night / Withdraw',
-    title: 'Silence is a feature.',
-    copy: 'The aperture closes, the seam cools, and intelligence returns the room to the people inside it.',
+    alt: 'Braking phase into the LQR handoff',
+    kicker: 'Phase / Brake',
+    title: 'A true kinematic stop.',
+    copy: 'Deceleration is derived from measured physics rather than a guessed gain, so the robot arrives at the endpoint at zero velocity — not past it, and not creeping toward it.',
   },
 ];
 
@@ -34,11 +34,11 @@ export default function Quiet() {
           ))}
         </div>
         <div className="quiet-shade" />
-        <div className="quiet-badge mono">A film measured in room tone</div>
+        <div className="quiet-badge mono">Either accelerating or braking. Never drifting.</div>
         <div className="quiet-head">
-          <div className="section-tag mono">03 / Quiet hours</div>
+          <div className="section-tag mono">03 / The velocity profile</div>
           <span className="quiet-time mono" id="quietTime">
-            06:42
+            ACCEL
           </span>
         </div>
         <div className="quiet-copy">
