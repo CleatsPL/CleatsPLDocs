@@ -1,9 +1,8 @@
-export default function Final() {
+export default function Home() {
   return (
     <section className="final" id="reserve">
       <div className="wrap final-top">
         <span className="mono">Cleats / FTC path following</span>
-        <span className="mono">Open source</span>
       </div>
       <h2 className="wrap">
         Stop lagging.
@@ -15,9 +14,7 @@ export default function Final() {
           <br />
           and let the library find your robot’s real limits.
         </p>
-        <a className="round-cta" href="#top" aria-label="Get started with Cleats">
-          ↗
-        </a>
+
       </div>
     </section>
   );

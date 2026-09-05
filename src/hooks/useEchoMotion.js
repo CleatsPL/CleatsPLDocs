@@ -5,8 +5,9 @@ import { fieldState } from '../fieldState.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export function useEchoMotion(rootRef) {
+export function useEchoMotion(rootRef, enabled = true) {
   useLayoutEffect(() => {
+    if (!enabled) return undefined;
     const root = rootRef.current;
     if (!root) return undefined;
 
@@ -379,5 +380,5 @@ export function useEchoMotion(rootRef) {
       if (onPointerMove) window.removeEventListener('pointermove', onPointerMove);
       ctx.revert();
     };
-  }, [rootRef]);
+  }, [rootRef, enabled]);
 }

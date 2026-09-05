@@ -8,6 +8,8 @@
 --gold-deep: #8a6a17;
 --gold-bright: #f2d98a;
 --amber: var(--gold);
+
+/*Update this code after adding background iamge */
 --red: #c1121f;
 --red-bright: #e63946;
 --red-deep: #8f0d17;
@@ -22,18 +24,28 @@ box-sizing: border-box
 html {
 scroll-behavior: auto
 }
+html,
+body,
+#root {
+height: 100%;
+overflow: hidden
+}
 body {
 margin: 0;
 background: var(--paper);
 color: var(--ink);
 font-family: var(--sans);
-overflow-x: hidden
+overflow: hidden;
+
+width: 100%;
+height: 100%;
+
 }
 body.menu-open {
 overflow: hidden
 }
 ::selection {
-background: var(--red);
+background: var(--gold);
 color: #ffffff
 }
 a {
@@ -67,6 +79,7 @@ pointer-events: none;
 opacity: .055;
 background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.78' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E")
 }
+
 .scroll-progress {
 position: fixed;
 z-index: 88;
@@ -120,6 +133,7 @@ border-color: var(--line)
 }
 .navin {
 width: 100%;
+position: relative;
 display: flex;
 align-items: center;
 justify-content: space-between;
@@ -166,37 +180,60 @@ top: -5px
 .navlinks {
 display: flex;
 align-items: center;
-gap: clamp(12px, 2vw, 28px);
+justify-content: center;
+gap: 8px;
 font-size: 12px;
 white-space: nowrap;
-flex-shrink: 0
+flex-shrink: 0;
+position: absolute;
+left: 160px;
+right: 160px;
+overflow-x: auto;
+scrollbar-width: none;
+pointer-events: none
+}
+.navlinks::-webkit-scrollbar {
+display: none
 }
 .navlinks a {
+display: inline-flex;
+align-items: center;
+padding: 9px 12px;
+border: 1px solid rgba(255, 255, 255, .18);
+border-radius: 14px;
+background: rgba(255, 255, 255, .08);
 opacity: .72;
-transition: .25s
+pointer-events: auto;
+align-items: center;
+transition: color .25s, opacity .25s, background .25s, border-color .25s, transform .25s
 }
 .navlinks a:hover {
 opacity: 1;
-color: var(--red-bright)
+color: var(--red-bright);
+background: rgba(193, 18, 31, .14);
+border-color: rgba(230, 57, 70, .5);
+transform: translateY(-3px)
 }
 .reserve {
+position: absolute;
+right: 0;
+top: 50%;
 display: inline-flex;
 align-items: center;
 gap: 10px;
 padding: 11px 17px;
 border: 1px solid currentColor;
-border-radius: 99px !important;
+border-radius: 14px !important;
+background: linear-gradient(135deg, rgba(242, 217, 138, .9), rgba(212, 175, 55, .82) 42%, rgba(193, 18, 31, .88));
 opacity: 1 !important;
-transition: .3s
+transform: translateY(-50%);
+transition: background .25s ease, border-color .25s ease, transform .25s ease
 }
-.reserve:hover {
-border-color: var(--red);
-color: var(--red);
-background: rgba(193, 18, 31, .08)
-}
-.nav.scrolled .reserve:hover {
-color: var(--red);
-background: rgba(193, 18, 31, .06)
+.navlinks .reserve:hover {
+border-color: var(--gold-bright);
+color: inherit;
+background: rgba(212, 175, 55, .34);
+transform: translateY(calc(-50% - 3px))
 }
 .reserve i {
 width: 6px;
@@ -1878,11 +1915,11 @@ background: linear-gradient(150deg, #a50f1a 0%, var(--red) 45%, #6d0a12 100%);
 color: var(--bone);
 border-top: 2px solid var(--gold);
 border-bottom: 2px solid var(--gold);
-min-height: 86vh;
+min-height: 100svh;
 display: flex;
 flex-direction: column;
 justify-content: space-between;
-padding-block: 35px;
+padding: 100px 0 35px;
 position: relative;
 overflow: hidden
 }
@@ -1971,6 +2008,22 @@ transition: opacity .42s cubic-bezier(.2, .8, .2, 1), transform .42s cubic-bezie
 opacity: 1;
 transform: none
 }
+.app-shell {
+height: 100%;
+overflow: hidden
+}
+.app-shell main {
+height: 100%;
+overflow: hidden
+}
+.app-shell footer {
+position: fixed;
+left: 0;
+right: 0;
+bottom: 0;
+z-index: 60;
+padding: 14px 0
+}
 @media(max-width:960px) {
 .cursor-orb {
 display: none
@@ -1986,6 +2039,9 @@ left: 0;
 right: 0;
 bottom: 0;
 height: calc(100svh - 72px);
+transform: none;
+justify-content: flex-start;
+pointer-events: auto;
 background: var(--paper);
 color: var(--ink);
 display: none;
@@ -1996,6 +2052,7 @@ padding: 36px 32px 40px;
 gap: 24px;
 font-size: 28px;
 z-index: 999;
+overflow-x: hidden;
 overflow-y: auto;
 border-top: 1px solid var(--line)
 }
@@ -2011,6 +2068,13 @@ backdrop-filter: none
 }
 .menu-open .navlinks {
 display: flex
+}
+.navlinks .reserve {
+position: static;
+transform: none
+}
+.navlinks .reserve:hover {
+transform: none
 }
 .menubtn {
 display: block
@@ -2198,9 +2262,7 @@ grid-template-columns: 1fr
 .quote-copy p:last-child {
 justify-self: start
 }
-.final {
-min-height: 70vh
-}
+
 .foot {
 align-items: flex-start
 }
