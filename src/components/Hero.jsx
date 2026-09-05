@@ -1,9 +1,3 @@
-const LIGHTS = [
-  { id: 'off', label: 'Off' },
-  { id: 'warm', label: 'Warm' },
-  { id: 'focus', label: 'Focus' },
-];
-
 function HeroLine({ text, accent }) {
   return (
     <span className={`hero-line${accent ? ' accent' : ''}`}>
@@ -16,11 +10,10 @@ function HeroLine({ text, accent }) {
   );
 }
 
-export default function Hero({ light, onLight, onPointerMove, onPointerLeave }) {
+export default function Hero({ onPointerMove, onPointerLeave }) {
   return (
     <section
       className="hero"
-      data-light={light}
       onPointerMove={onPointerMove}
       onPointerLeave={onPointerLeave}
     >
@@ -31,36 +24,6 @@ export default function Hero({ light, onLight, onPointerMove, onPointerLeave }) 
       <div className="hero-beam" aria-hidden="true" />
       <div className="hero-light" aria-hidden="true" />
       <div className="hero-cast" aria-hidden="true" />
-      <div className="hero-data mono">
-        <span>Field</span>
-        <span>43.67 N</span>
-        <span>State</span>
-        <span>Listening</span>
-        <span>Light</span>
-        <span>06:42</span>
-      </div>
-      <div className="light-console" aria-label="Room lighting controls">
-        <div className="light-console-top mono">
-          <span>Room light</span>
-          <span id="lightStatus" aria-live="polite">
-            {LIGHTS.find((item) => item.id === light)?.label}
-          </span>
-        </div>
-        <div className="light-scenes" role="group" aria-label="Choose hero lighting">
-          {LIGHTS.map((item) => (
-            <button
-              key={item.id}
-              type="button"
-              data-light={item.id}
-              className={light === item.id ? 'active' : ''}
-              aria-pressed={light === item.id}
-              onClick={() => onLight(item.id)}
-            >
-              {item.label}
-            </button>
-          ))}
-        </div>
-      </div>
       <div className="hero-copy">
         <div className="eyebrow mono">
           <i className="pulse" /> Ambient intelligence / first edition

@@ -41,9 +41,7 @@ export function useEchoMotion(rootRef) {
           { yPercent: 125, rotateX: -95, opacity: 0, duration: 0.58, stagger: 0.014, ease: 'power4.out' },
           -0.22
         )
-        .from('.hero-bottom>*', { y: 18, opacity: 0, duration: 0.42, stagger: 0.06, ease: 'power3.out' }, -0.36)
-        .from('.hero-data span', { x: 12, opacity: 0, duration: 0.34, stagger: 0.03, ease: 'power2.out' }, -0.4)
-        .from('.light-console', { x: 16, opacity: 0, duration: 0.38, ease: 'power3.out' }, -0.36);
+        .from('.hero-bottom>*', { y: 18, opacity: 0, duration: 0.42, stagger: 0.06, ease: 'power3.out' }, -0.36);
 
       gsap.to('.hero-media img', {
         scale: 1.22,

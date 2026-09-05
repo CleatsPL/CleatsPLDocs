@@ -1,10 +1,11 @@
 :root {
---bone: #ede9df;
---paper: #f6f3eb;
+--bone: #f4f0e8;
+--paper: #ffffff;
 --ink: #171713;
---fog: #a5a197;
+--fog: #949086;
 --amber: #e7a94a;
---line: rgba(23, 23, 19, .17);
+--red: #d63638;
+--line: rgba(23, 23, 19, .14);
 --mono: 'Space Mono', monospace;
 --sans: 'DM Sans', sans-serif
 }
@@ -25,8 +26,8 @@ body.menu-open {
 overflow: hidden
 }
 ::selection {
-background: var(--amber);
-color: var(--ink)
+background: var(--red);
+color: #ffffff
 }
 a {
 color: inherit;
@@ -115,21 +116,25 @@ width: 100%;
 display: flex;
 align-items: center;
 justify-content: space-between;
-gap: 24px
+gap: clamp(12px, 2vw, 24px);
+flex-wrap: nowrap
 }
 .brand {
 display: flex;
 align-items: center;
 gap: 11px;
 font-weight: 600;
-letter-spacing: -.03em
+letter-spacing: -.03em;
+white-space: nowrap;
+flex-shrink: 0
 }
 .brandmark {
 width: 29px;
 height: 29px;
 border: 1px solid currentColor;
 border-radius: 50%;
-position: relative
+position: relative;
+flex-shrink: 0
 }
 .brandmark:before {
 content: "";
@@ -137,7 +142,7 @@ position: absolute;
 width: 7px;
 height: 7px;
 border-radius: 50%;
-background: var(--amber);
+background: var(--red);
 left: 50%;
 top: 50%;
 transform: translate(-50%, -50%)
@@ -154,15 +159,18 @@ top: -5px
 .navlinks {
 display: flex;
 align-items: center;
-gap: 28px;
-font-size: 12px
+gap: clamp(12px, 2vw, 28px);
+font-size: 12px;
+white-space: nowrap;
+flex-shrink: 0
 }
 .navlinks a {
 opacity: .72;
 transition: .25s
 }
 .navlinks a:hover {
-opacity: 1
+opacity: 1;
+color: var(--amber)
 }
 .reserve {
 display: inline-flex;
@@ -171,12 +179,17 @@ gap: 10px;
 padding: 11px 17px;
 border: 1px solid currentColor;
 border-radius: 99px !important;
-opacity: 1 !important
+opacity: 1 !important;
+transition: .3s
+}
+.reserve:hover {
+border-color: var(--red);
+color: var(--red)
 }
 .reserve i {
 width: 6px;
 height: 6px;
-background: var(--amber);
+background: var(--red);
 border-radius: 50%
 }
 .menubtn {
@@ -323,8 +336,8 @@ margin-bottom: 40px
 width: 7px;
 height: 7px;
 border-radius: 50%;
-background: var(--amber);
-box-shadow: 0 0 0 0 rgba(231, 169, 74, .55);
+background: var(--red);
+box-shadow: 0 0 0 0 rgba(214, 54, 56, .65);
 animation: pulse 1.6s infinite
 }
 @keyframes pulse {
@@ -403,51 +416,6 @@ gap: 7px 32px;
 text-align: right;
 opacity: .74
 }
-.light-console {
-position: absolute;
-z-index: 5;
-right: clamp(20px, 4vw, 64px);
-top: 205px;
-width: 224px;
-padding: 12px;
-border: 1px solid rgba(255, 255, 255, .24);
-background: rgba(16, 15, 12, .3);
-backdrop-filter: blur(14px);
-color: #f4f0e6;
-border-radius: 16px
-}
-.light-console-top {
-display: flex;
-align-items: center;
-justify-content: space-between;
-margin-bottom: 10px
-}
-.light-console-top span:last-child {
-color: var(--amber)
-}
-.light-scenes {
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-gap: 5px
-}
-.light-scenes button {
-border: 1px solid rgba(255, 255, 255, .2);
-border-radius: 99px;
-background: transparent;
-color: rgba(255, 255, 255, .64);
-padding: 8px 4px;
-font: 8px var(--mono);
-letter-spacing: .1em;
-text-transform: uppercase;
-cursor: pointer;
-transition: .3s
-}
-.light-scenes button:hover,
-.light-scenes button.active {
-background: var(--amber);
-border-color: var(--amber);
-color: var(--ink)
-}
 .ticker {
 background: var(--amber);
 border-block: 1px solid var(--ink);
@@ -458,7 +426,7 @@ height: 50px;
 display: flex;
 align-items: center;
 width: max-content;
-animation: tick 14s linear infinite
+animation: tick 48s linear infinite
 }
 .ticker span {
 font: 700 10px var(--mono);
@@ -751,8 +719,8 @@ max-width: 9ch
 font-size: 14px;
 line-height: 1.6;
 color: #aaa69c;
-max-width: 40ch;
-margin-left: min(34vw, 460px)
+max-width: 44ch;
+margin: 16px 0 0
 }
 .story-meter {
 position: absolute;
@@ -854,8 +822,8 @@ margin: 13px 0 25px
 font-size: 14px;
 line-height: 1.65;
 color: #b0aca2;
-max-width: 38ch;
-margin-left: min(50vw, 700px)
+max-width: 44ch;
+margin: 16px 0 0
 }
 .quiet-rail {
 position: absolute;
@@ -1059,47 +1027,51 @@ transform-style: preserve-3d
 .space-card {
 position: absolute;
 width: min(45vw, 660px);
-height: min(42vh, 430px);
+min-height: min(45vh, 400px);
+height: auto;
 border: 1px solid rgba(23, 23, 19, .24);
 background: rgba(237, 233, 223, .82);
 backdrop-filter: blur(10px);
-padding: 26px;
+padding: clamp(20px, 2.5vw, 32px);
 display: flex;
 flex-direction: column;
 justify-content: space-between;
 box-shadow: 0 35px 90px rgba(23, 23, 19, .14);
 transform-style: preserve-3d;
-will-change: transform, opacity
+will-change: transform, opacity;
+overflow: visible
 }
 .space-card:nth-of-type(1) {
 left: 10vw;
-top: 39vh
+top: 36vh
 }
 .space-card:nth-of-type(2) {
 right: 8vw;
-top: 47vh;
+top: 42vh;
 background: var(--ink);
 color: var(--bone)
 }
 .space-card:nth-of-type(3) {
 left: 20vw;
-top: 44vh;
-height: min(32vh, 320px);
+top: 40vh;
+min-height: min(38vh, 340px);
+height: auto;
 background: var(--amber)
 }
 .space-card h3 {
-font-size: clamp(32px, 4vw, 62px);
+font-size: clamp(26px, 3.4vw, 54px);
 font-weight: 400;
 letter-spacing: -.055em;
-line-height: .92;
-margin: 0;
-max-width: 8ch
+line-height: .98;
+margin: 12px 0 10px;
+max-width: 10ch
 }
 .space-card p {
 font-size: 13px;
-line-height: 1.6;
-max-width: 34ch;
-color: #69655d
+line-height: 1.5;
+max-width: 36ch;
+color: #69655d;
+margin: 0
 }
 .space-card:nth-of-type(2) p {
 color: #99958c
@@ -1183,12 +1155,29 @@ align-items: center;
 gap: 28px;
 margin: 48px 0 36px
 }
-.signal-orb {
-width: 86px;
-height: 86px;
-border-radius: 50%;
-flex: 0 0 auto;
-background: radial-gradient(circle at 38% 32%, #f7d48a, var(--amber) 42%, #6a4a18 78%)
+.signal-status-badge {
+display: flex;
+flex-direction: column;
+justify-content: center;
+padding: 14px 18px;
+border: 1px solid var(--amber);
+background: rgba(231, 169, 74, .08);
+border-radius: 6px;
+min-width: 145px;
+flex: 0 0 auto
+}
+.signal-status-badge .badge-tag {
+font-size: 9px;
+letter-spacing: .18em;
+color: var(--amber);
+opacity: .85;
+margin-bottom: 4px
+}
+.signal-status-badge .badge-val {
+font-size: 13px;
+font-weight: 700;
+letter-spacing: .12em;
+color: var(--bone)
 }
 .signal-live {
 display: flex;
@@ -1286,15 +1275,16 @@ will-change: transform
 }
 .lab-card {
 width: min(68vw, 840px);
-height: min(48vh, 480px);
 min-height: 400px;
+height: auto;
 background: var(--paper);
 border: 1px solid rgba(23, 23, 19, .2);
 padding: clamp(24px, 3vw, 40px);
-display: grid;
-grid-template-rows: auto 1fr auto;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
 position: relative;
-overflow: hidden
+overflow: visible
 }
 .lab-card.dark {
 background: var(--ink);
@@ -1307,34 +1297,50 @@ background: var(--amber)
 display: flex;
 justify-content: space-between
 }
+.lab-card-content {
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: clamp(20px, 3vw, 40px);
+flex: 1;
+margin-top: 16px
+}
+.lab-copy {
+flex: 1 1 55%;
+max-width: 440px
+}
 .lab-card h3 {
-font-size: clamp(36px, 4.5vw, 66px);
-line-height: .92;
+font-size: clamp(28px, 3.8vw, 56px);
+line-height: .96;
 letter-spacing: -.06em;
 font-weight: 400;
-margin: 0;
-max-width: 8ch
+margin: 0 0 10px;
+max-width: 10ch
 }
 .lab-card p {
 font-size: 14px;
-line-height: 1.6;
-max-width: 38ch;
-color: #6a665d
+line-height: 1.5;
+max-width: 40ch;
+color: #6a665d;
+margin: 0
 }
 .lab-card.dark p {
 color: #9b978e
 }
 .lab-visual {
+flex: 0 0 auto;
 display: grid;
 place-items: center;
-position: relative
+position: relative;
+min-width: 180px;
+margin-left: auto
 }
 .acoustic-rings {
-width: min(25vw, 300px);
+width: min(20vw, 220px);
 aspect-ratio: 1;
 border-radius: 50%;
 border: 1px solid var(--ink);
-box-shadow: inset 0 0 0 28px var(--bone), inset 0 0 0 29px var(--ink), inset 0 0 0 64px var(--bone), inset 0 0 0 65px var(--ink);
+box-shadow: inset 0 0 0 20px var(--bone), inset 0 0 0 21px var(--ink), inset 0 0 0 46px var(--bone), inset 0 0 0 47px var(--ink);
 position: relative
 }
 .acoustic-rings:after {
@@ -1542,14 +1548,15 @@ grid-template-columns: repeat(3, 1fr);
 border-top: 1px solid var(--ink)
 }
 .card {
-min-height: 430px;
-padding: 25px 24px 30px;
+min-height: 360px;
+padding: 24px 24px 32px;
 border-right: 1px solid var(--line);
 display: flex;
 flex-direction: column;
+justify-content: space-between;
 transition: .45s;
 position: relative;
-overflow: hidden
+overflow: visible
 }
 .card:last-child {
 border-right: 0
@@ -1562,9 +1569,10 @@ font-family: var(--mono);
 font-size: 10px
 }
 .glyph {
-height: 190px;
+height: 140px;
 display: grid;
-place-items: center
+place-items: center;
+margin: 10px 0
 }
 .glyph i {
 display: block;
@@ -1795,26 +1803,40 @@ transition: opacity .42s cubic-bezier(.2, .8, .2, 1), transform .42s cubic-bezie
 opacity: 1;
 transform: none
 }
-@media(max-width:900px) {
+@media(max-width:960px) {
 .cursor-orb {
 display: none
 }
+.navin {
+position: relative;
+z-index: 110
+}
 .navlinks {
 position: fixed;
-inset: 0;
+top: 72px;
+left: 0;
+right: 0;
+bottom: 0;
+height: calc(100svh - 72px);
 background: var(--paper);
 color: var(--ink);
 display: none;
 flex-direction: column;
-justify-content: center;
+justify-content: flex-start;
 align-items: flex-start;
-padding: 80px 25px;
-gap: 22px;
-font-size: 34px;
-z-index: -1
+padding: 36px 32px 40px;
+gap: 24px;
+font-size: 28px;
+z-index: 999;
+overflow-y: auto;
+border-top: 1px solid var(--line)
+}
+.nav.scrolled+.navlinks,
+.nav.scrolled .navlinks {
+top: 62px;
+height: calc(100svh - 62px)
 }
 .menu-open .nav {
-height: 100svh;
 background: var(--paper);
 color: var(--ink);
 backdrop-filter: none
@@ -1836,11 +1858,6 @@ font-size: clamp(49px, 14.4vw, 92px)
 }
 .hero h1>.accent {
 margin-left: clamp(18px, 5vw, 46px)
-}
-.light-console {
-top: 98px;
-right: 20px;
-width: 210px
 }
 .hero-bottom {
 display: block
@@ -2086,11 +2103,6 @@ display: none
 @media(max-width:540px) {
 .hero {
 min-height: 680px
-}
-.light-console {
-left: 20px;
-right: 20px;
-width: auto
 }
 .hero-bottom p {
 font-size: 14px

@@ -13,7 +13,7 @@ export default function Presence() {
   const onMode = (item) => {
     setActive(item);
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    gsap.fromTo('.signal-orb', { scale: 0.88 }, { scale: 1, duration: 0.35, ease: 'back.out(1.8)' });
+    gsap.fromTo('#modeName', { y: -4, opacity: 0.7 }, { y: 0, opacity: 1, duration: 0.28, ease: 'power2.out' });
   };
 
   return (
@@ -24,16 +24,8 @@ export default function Presence() {
       <div className="presence-ui reveal">
         <div className="section-tag mono">05 / Presence engine</div>
         <h2>Set the room's frequency.</h2>
-        <p>ECHO changes its voice, response speed and light—not its personality.</p>
+        <p>ECHO changes its voice, response speed and status—not its personality.</p>
         <div className="signal">
-          <div
-            className="signal-orb"
-            id="signalOrb"
-            aria-hidden="true"
-            style={{
-              boxShadow: `0 0 90px rgba(231,169,74,${active.glow}),0 0 220px rgba(231,169,74,${active.glow})`,
-            }}
-          />
           <div className="signal-readout">
             <div className="signal-live mono">
               <i />

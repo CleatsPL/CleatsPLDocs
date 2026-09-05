@@ -27,7 +27,6 @@ export default function App() {
   const rootRef = useRef(null);
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [light, setLight] = useState('warm');
 
   useEchoMotion(rootRef);
 
@@ -42,23 +41,9 @@ export default function App() {
     document.body.classList.toggle('menu-open', menuOpen);
   }, [menuOpen]);
 
-  const onLight = useCallback((mode) => {
-    setLight(mode);
-    const hero = document.querySelector('.hero');
-    if (hero) {
-      ['--lx', '--ly', '--title-x', '--title-y'].forEach((v) => hero.style.removeProperty(v));
-    }
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    gsap.fromTo(
-      '.hero-char',
-      { y: -3, filter: 'brightness(1.9)' },
-      { y: 0, filter: 'brightness(1)', duration: 0.28, stagger: 0.008, ease: 'power3.out' }
-    );
-  }, []);
-
   const onHeroMove = useCallback(
     (event) => {
-      if (reduced || window.innerWidth < 701 || light === 'off') return;
+      if (reduced || window.innerWidth < 701) return;
       const hero = event.currentTarget;
       const r = hero.getBoundingClientRect();
       const x = Math.max(0, Math.min(1, (event.clientX - r.left) / r.width));
@@ -68,7 +53,7 @@ export default function App() {
       hero.style.setProperty('--title-x', `${((0.5 - x) * 20).toFixed(1)}px`);
       hero.style.setProperty('--title-y', `${((0.5 - y) * 18).toFixed(1)}px`);
     },
-    [light]
+    []
   );
 
   const onHeroLeave = useCallback((event) => {
@@ -85,7 +70,7 @@ export default function App() {
         onNavigate={() => setMenuOpen(false)}
       />
       <main id="top">
-        <Hero light={light} onLight={onLight} onPointerMove={onHeroMove} onPointerLeave={onHeroLeave} />
+        <Hero onPointerMove={onHeroMove} onPointerLeave={onHeroLeave} />
         <Ticker />
         <Premise />
         <Story />
