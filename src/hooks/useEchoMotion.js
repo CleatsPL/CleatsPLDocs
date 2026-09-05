@@ -12,6 +12,7 @@ export function useEchoMotion(rootRef) {
 
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     let onPointerMove = null;
+
     const io = new IntersectionObserver(
       (entries) =>
         entries.forEach((entry) => {
@@ -89,12 +90,14 @@ export function useEchoMotion(rootRef) {
 
       premiseTL
         .to('.premise-word', { xPercent: 12, letterSpacing: '-.06em', duration: 3 }, 0)
-        .to('.premise-object', { yPercent: -8, scale: 0.92, duration: 3 }, 0)
-        .to('.premise-seam i', { scaleX: 1, duration: 3 }, 0)
+        .to('.premise-signal', { rotation: 250, scale: 0.62, xPercent: -18, duration: 3 }, 0)
+        .to('.premise-signal i:first-child', { scale: 1.9, opacity: 0.08, duration: 3 }, 0)
+        .to('.premise-signal i:nth-child(2)', { scale: 0.46, opacity: 0.92, duration: 3 }, 0)
         .to(premiseBeats[0], { opacity: 0, y: -45, rotateX: 10, duration: 0.3 }, 0.68)
         .to(premiseBeats[1], { opacity: 1, y: 0, rotateX: 0, duration: 0.48, ease: 'power3.out' }, 0.83)
         .to(premiseBeats[1], { opacity: 0, y: -45, rotateX: 10, duration: 0.3 }, 1.68)
-        .to(premiseBeats[2], { opacity: 1, y: 0, rotateX: 0, duration: 0.48, ease: 'power3.out' }, 1.83);
+        .to(premiseBeats[2], { opacity: 1, y: 0, rotateX: 0, duration: 0.48, ease: 'power3.out' }, 1.83)
+        .to('.premise-signal b', { x: 390, y: 15, duration: 3 }, 0);
 
       const storyPanels = [...document.querySelectorAll('.story-panel')];
       const storyIndex = document.getElementById('storyIndex');
@@ -128,6 +131,13 @@ export function useEchoMotion(rootRef) {
       gsap.to('.story-media', {
         scale: 1.22,
         xPercent: 4,
+        ease: 'none',
+        scrollTrigger: { trigger: '#story', start: 'top top', end: 'bottom bottom', scrub: 1 },
+      });
+      gsap.to('.story-orbit', {
+        rotation: 220,
+        scale: 0.64,
+        xPercent: -18,
         ease: 'none',
         scrollTrigger: { trigger: '#story', start: 'top top', end: 'bottom bottom', scrub: 1 },
       });
@@ -212,16 +222,11 @@ export function useEchoMotion(rootRef) {
         });
 
         spaceTL
-          .to(spaceCards[0], { z: 260, rotateY: 8, rotateX: -3, opacity: 1, duration: 0.85, ease: 'none' })
-          .to(spaceCards[0], { z: 640, opacity: 0, duration: 0.38, ease: 'none' }, 0.85)
-          .to(spaceCards[1], { z: 250, rotateY: -8, rotateX: 3, opacity: 1, duration: 0.85, ease: 'none' }, 0.6)
-          .to(spaceCards[1], { z: 640, opacity: 0, duration: 0.38, ease: 'none' }, 1.45)
-          .to(
-            spaceCards[2],
-            { z: 40, rotateY: 4, rotateX: -2, y: -18, opacity: 1, duration: 0.9, ease: 'none' },
-            1.25
-          )
-          .to({}, { duration: 0.85 });
+          .to(spaceCards[0], { z: 260, rotateY: 8, rotateX: -3, opacity: 1, duration: 1, ease: 'none' })
+          .to(spaceCards[0], { z: 640, opacity: 0, duration: 0.45, ease: 'none' })
+          .to(spaceCards[1], { z: 250, rotateY: -8, rotateX: 3, opacity: 1, duration: 1, ease: 'none' }, 0.7)
+          .to(spaceCards[1], { z: 640, opacity: 0, duration: 0.45, ease: 'none' }, 1.7)
+          .to(spaceCards[2], { z: 180, rotateY: 5, rotateX: -2, opacity: 1, duration: 1, ease: 'none' }, 1.4);
 
         gsap.to('.spatial-world', {
           rotationY: 5,
@@ -234,18 +239,17 @@ export function useEchoMotion(rootRef) {
       });
 
       mm.add('(min-width:901px)', () => {
-        const distance = () => Math.max(0, labTrack.scrollWidth - window.innerWidth + 120);
+        const distance = () => Math.max(0, labTrack.scrollWidth - window.innerWidth + 64);
         const move = gsap.to(labTrack, {
           x: () => -distance(),
           ease: 'none',
           scrollTrigger: {
             trigger: '#lab',
             start: 'top top',
-            end: () => `+=${distance() + 280}`,
+            end: () => `+=${distance() + 500}`,
             pin: true,
             scrub: 1,
             invalidateOnRefresh: true,
-            anticipatePin: 1,
           },
         });
         gsap.to('.acoustic-rings', {
@@ -254,7 +258,7 @@ export function useEchoMotion(rootRef) {
           scrollTrigger: {
             trigger: '#lab',
             start: 'top top',
-            end: () => `+=${distance() + 280}`,
+            end: () => `+=${distance() + 500}`,
             scrub: 1,
           },
         });
@@ -263,72 +267,47 @@ export function useEchoMotion(rootRef) {
 
       const kineticWords = gsap.utils.toArray('.kinetic-word');
       const kineticStep = document.getElementById('kineticStep');
-      gsap.set(kineticWords.slice(1), { opacity: 0, immediateRender: true });
+      gsap.set(kineticWords.slice(1), { opacity: 0 });
 
       const kineticTL = gsap.timeline({
-        defaults: { ease: 'none' },
         scrollTrigger: {
           trigger: '#language',
           start: 'top top',
-          end: '+=280%',
-          pin: true,
-          scrub: 0.45,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
-          fastScrollEnd: true,
+          end: 'bottom bottom',
+          scrub: 1,
           onUpdate: (self) => {
-            const p = self.progress;
             if (kineticStep) {
-              kineticStep.textContent = `${p < 0.32 ? '01' : p < 0.62 ? '02' : '03'} / 03`;
+              kineticStep.textContent = `${String(Math.min(3, Math.floor(self.progress * 3) + 1)).padStart(2, '0')} / 03`;
             }
           },
         },
       });
 
       kineticTL
-        .to('.kinetic-beam', { scaleX: 1, duration: 0.28, ease: 'power2.inOut' })
+        .to('.kinetic-beam', { scaleX: 1, duration: 0.65, ease: 'power2.inOut' })
         .to(
           kineticWords[0],
-          { yPercent: -38, rotateX: 72, z: 180, opacity: 0, filter: 'blur(8px)', duration: 0.38, ease: 'power2.in' },
-          0.42
+          { yPercent: -38, rotateX: 72, z: 180, opacity: 0, filter: 'blur(10px)', duration: 0.8, ease: 'power2.in' },
+          0.35
         )
         .fromTo(
           kineticWords[1],
-          { yPercent: 45, rotateX: -72, z: -180, opacity: 0, filter: 'blur(10px)' },
-          {
-            yPercent: 0,
-            rotateX: 0,
-            z: 0,
-            opacity: 1,
-            filter: 'blur(0px)',
-            duration: 0.4,
-            ease: 'power3.out',
-            immediateRender: false,
-          },
-          0.52
+          { yPercent: 45, rotateX: -72, z: -180, opacity: 0, filter: 'blur(12px)' },
+          { yPercent: 0, rotateX: 0, z: 0, opacity: 1, filter: 'blur(0px)', duration: 0.9, ease: 'power3.out' },
+          0.7
         )
         .to(
           kineticWords[1],
-          { scale: 0.62, rotateY: -32, z: 260, opacity: 0, filter: 'blur(8px)', duration: 0.36, ease: 'power2.in' },
-          1.05
+          { scale: 0.62, rotateY: -32, z: 260, opacity: 0, filter: 'blur(8px)', duration: 0.8, ease: 'power2.in' },
+          1.65
         )
         .fromTo(
           kineticWords[2],
-          { scale: 1.28, rotateY: 18, z: -180, opacity: 0, filter: 'blur(10px)' },
-          {
-            scale: 1,
-            rotateY: 0,
-            z: 0,
-            opacity: 1,
-            filter: 'blur(0px)',
-            duration: 0.42,
-            ease: 'power3.out',
-            immediateRender: false,
-          },
-          1.12
+          { scale: 1.5, rotateY: 28, z: -260, opacity: 0, filter: 'blur(14px)' },
+          { scale: 1, rotateY: 0, z: 0, opacity: 1, filter: 'blur(0px)', duration: 1, ease: 'power3.out' },
+          1.95
         )
-        .to('.kinetic-beam', { scaleX: 0.14, xPercent: 220, duration: 0.36, ease: 'power2.in' }, 1.18)
-        .to({}, { duration: 1.05 });
+        .to('.kinetic-beam', { scaleX: 0.14, xPercent: 300, duration: 0.7, ease: 'power2.in' }, 2.2);
 
       document.querySelectorAll('[data-count]').forEach((el) => {
         const target = +el.dataset.count;
@@ -369,7 +348,6 @@ export function useEchoMotion(rootRef) {
     }, root);
 
     const refresh = () => ScrollTrigger.refresh();
-    if (document.fonts?.ready) document.fonts.ready.then(refresh);
     window.addEventListener('load', refresh);
     const raf = requestAnimationFrame(refresh);
 
@@ -377,6 +355,7 @@ export function useEchoMotion(rootRef) {
       io.disconnect();
       cancelAnimationFrame(raf);
       window.removeEventListener('load', refresh);
+      if (onPointerMove) window.removeEventListener('pointermove', onPointerMove);
       ctx.revert();
     };
   }, [rootRef]);

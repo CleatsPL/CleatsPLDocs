@@ -41,12 +41,11 @@ export default function Premise() {
         <div className="premise-word" aria-hidden="true">
           LESS
         </div>
-        <div className="premise-object" aria-hidden="true">
-          <div className="premise-object-shell" />
-          <div className="premise-seam">
-            <i />
-          </div>
-          <span className="premise-object-label mono">Seam / 2700 K</span>
+        <div className="premise-signal" aria-hidden="true">
+          <i />
+          <i />
+          <i />
+          <b />
         </div>
         <div className="premise-copy">
           {beats.map((beat) => (

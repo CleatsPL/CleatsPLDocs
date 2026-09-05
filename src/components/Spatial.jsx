@@ -36,7 +36,9 @@ export default function Spatial() {
             <article className="space-card" key={card.kicker}>
               <div className="mono">{card.kicker}</div>
               <div className="space-visual" aria-hidden="true">
-                <span />
+                <i />
+                <i />
+                <i />
               </div>
               <div>
                 <h3>{card.title}</h3>

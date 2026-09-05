@@ -28,7 +28,6 @@ export default function App() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [light, setLight] = useState('warm');
-  const [presence, setPresence] = useState('HUSH');
 
   useEchoMotion(rootRef);
 
@@ -57,26 +56,23 @@ export default function App() {
     );
   }, []);
 
-  const onHeroMove = useCallback((event) => {
-    if (reduced || window.innerWidth < 701 || light === 'off') return;
-    const hero = event.currentTarget;
-    const r = hero.getBoundingClientRect();
-    const x = Math.max(0, Math.min(1, (event.clientX - r.left) / r.width));
-    const y = Math.max(0, Math.min(1, (event.clientY - r.top) / r.height));
-    hero.style.setProperty('--lx', `${(x * 100).toFixed(1)}%`);
-    hero.style.setProperty('--ly', `${(y * 92).toFixed(1)}%`);
-    hero.style.setProperty('--title-x', `${((0.5 - x) * 20).toFixed(1)}px`);
-    hero.style.setProperty('--title-y', `${((0.5 - y) * 18).toFixed(1)}px`);
-  }, [light]);
+  const onHeroMove = useCallback(
+    (event) => {
+      if (reduced || window.innerWidth < 701 || light === 'off') return;
+      const hero = event.currentTarget;
+      const r = hero.getBoundingClientRect();
+      const x = Math.max(0, Math.min(1, (event.clientX - r.left) / r.width));
+      const y = Math.max(0, Math.min(1, (event.clientY - r.top) / r.height));
+      hero.style.setProperty('--lx', `${(x * 100).toFixed(1)}%`);
+      hero.style.setProperty('--ly', `${(y * 92).toFixed(1)}%`);
+      hero.style.setProperty('--title-x', `${((0.5 - x) * 20).toFixed(1)}px`);
+      hero.style.setProperty('--title-y', `${((0.5 - y) * 18).toFixed(1)}px`);
+    },
+    [light]
+  );
 
   const onHeroLeave = useCallback((event) => {
     ['--lx', '--ly', '--title-x', '--title-y'].forEach((v) => event.currentTarget.style.removeProperty(v));
-  }, []);
-
-  const onMode = useCallback((item) => {
-    setPresence(item.mode);
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    gsap.fromTo('.signal-orb', { scale: 0.88 }, { scale: 1, duration: 0.65, ease: 'back.out(1.8)' });
   }, []);
 
   return (
@@ -97,7 +93,7 @@ export default function App() {
         <System />
         <Field />
         <Spatial />
-        <Presence active={presence} onMode={onMode} />
+        <Presence />
         <Lab />
         <Kinetic />
         <Modes />

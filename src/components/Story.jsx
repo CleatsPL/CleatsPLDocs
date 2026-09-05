@@ -23,6 +23,9 @@ export default function Story() {
         <div className="story-media">
           <img src="/assets/echo01-story-rain.jpg" alt="ECHO/01 in a rain-lit brutalist living room" loading="lazy" />
         </div>
+        <div className="story-orbit" aria-hidden="true">
+          <i />
+        </div>
         <div className="story-top">
           <div className="section-tag mono">02 / A day with ECHO</div>
           <div className="story-index">

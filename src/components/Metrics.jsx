@@ -12,6 +12,7 @@ export default function Metrics() {
             <span data-count="6">0</span>m
           </div>
           <p>A six-microphone array hears a conversational voice without raising the room. Beamforming stays on-device.</p>
+          <i className="metric-orbit" aria-hidden="true" />
         </article>
         <article className="metric amber">
           <small>Response onset</small>

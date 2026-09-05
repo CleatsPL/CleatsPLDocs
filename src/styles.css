@@ -34,9 +34,7 @@ text-decoration: none
 }
 button {
 font: inherit;
-color: inherit;
-cursor: pointer;
-background: none
+color: inherit
 }
 img {
 display: block;
@@ -187,8 +185,7 @@ width: 42px;
 height: 42px;
 border: 1px solid currentColor;
 border-radius: 50%;
-background: none;
-cursor: pointer
+background: none
 }
 .menubtn span,
 .menubtn:after {
@@ -537,66 +534,55 @@ letter-spacing: -.12em;
 white-space: nowrap;
 pointer-events: none
 }
-.premise-object {
+.premise-signal {
 position: absolute;
 z-index: 2;
-right: clamp(28px, 8vw, 140px);
+right: clamp(28px, 8vw, 130px);
 top: 50%;
-width: min(22vw, 280px);
-height: min(52vh, 460px);
+width: min(36vw, 520px);
+aspect-ratio: 1;
 transform: translateY(-50%);
-pointer-events: none
+transform-origin: center
 }
-.premise-object-shell {
-position: absolute;
-inset: 0;
-border: 1px solid rgba(23, 23, 19, .2);
-border-radius: 999px;
-background: linear-gradient(180deg, rgba(246, 243, 235, .35), rgba(237, 233, 223, .08))
-}
-.premise-object-shell:before,
-.premise-object-shell:after {
+.premise-signal i,
+.premise-signal:before,
+.premise-signal:after {
 content: "";
 position: absolute;
-left: 50%;
-width: 1px;
-background: rgba(23, 23, 19, .14);
-transform: translateX(-50%)
+inset: 0;
+border: 1px solid rgba(23, 23, 19, .22);
+border-radius: 50%
 }
-.premise-object-shell:before {
-top: 12%;
-height: 18%
+.premise-signal i:nth-child(2) {
+inset: 17%;
+border-color: rgba(231, 169, 74, .78)
 }
-.premise-object-shell:after {
-bottom: 12%;
-height: 18%
+.premise-signal i:nth-child(3) {
+inset: 36%;
+border-color: rgba(23, 23, 19, .32)
 }
-.premise-seam {
-position: absolute;
-left: 16%;
-right: 16%;
-top: 48%;
-height: 2px;
-background: rgba(23, 23, 19, .12);
-overflow: hidden;
-border-radius: 99px
-}
-.premise-seam i {
-display: block;
-width: 100%;
-height: 100%;
+.premise-signal:before {
+inset: 49%;
+border: 0;
 background: var(--amber);
-box-shadow: 0 0 18px rgba(231, 169, 74, .7);
-transform: scaleX(.18);
-transform-origin: left center
+box-shadow: 0 0 0 14px rgba(231, 169, 74, .12), 0 0 70px rgba(231, 169, 74, .42)
 }
-.premise-object-label {
+.premise-signal:after {
+inset: 8%;
+border-color: transparent;
+border-top-color: var(--ink);
+border-right-color: var(--ink);
+transform: rotate(18deg)
+}
+.premise-signal b {
 position: absolute;
-left: 50%;
-bottom: -28px;
-transform: translateX(-50%);
-color: #8c6a35;
-white-space: nowrap
+width: 9px;
+height: 9px;
+border-radius: 50%;
+background: var(--amber);
+left: 12%;
+top: 49%;
+box-shadow: 0 0 22px var(--amber)
 }
 .premise-copy {
 position: absolute;
@@ -705,6 +691,39 @@ content: "";
 position: absolute;
 inset: 0;
 background: linear-gradient(90deg, rgba(8, 8, 7, .92), rgba(8, 8, 7, .38) 48%, rgba(8, 8, 7, .13)), linear-gradient(0deg, rgba(8, 8, 7, .75), transparent 52%)
+}
+.story-orbit {
+position: absolute;
+width: min(76vw, 940px);
+aspect-ratio: 1;
+border: 1px solid rgba(237, 233, 223, .23);
+border-radius: 50%;
+right: -14vw;
+top: 50%;
+transform: translateY(-50%)
+}
+.story-orbit:before,
+.story-orbit:after {
+content: "";
+position: absolute;
+border: 1px solid rgba(237, 233, 223, .14);
+border-radius: 50%;
+inset: 12%
+}
+.story-orbit:after {
+inset: 31%;
+border-color: rgba(231, 169, 74, .62);
+box-shadow: 0 0 70px rgba(231, 169, 74, .08)
+}
+.story-orbit i {
+position: absolute;
+width: 10px;
+height: 10px;
+border-radius: 50%;
+background: var(--amber);
+left: 12%;
+top: 50%;
+box-shadow: 0 0 24px var(--amber)
 }
 .story-top {
 position: absolute;
@@ -1026,7 +1045,7 @@ margin-right: 9px;
 box-shadow: 0 0 12px var(--amber)
 }
 .spatial {
-height: 320vh;
+height: 280vh;
 background: var(--paper);
 position: relative
 }
@@ -1092,9 +1111,8 @@ background: var(--ink);
 color: var(--bone)
 }
 .space-card:nth-of-type(3) {
-left: 22vw;
-top: 30vh;
-height: min(38vh, 390px);
+left: 28vw;
+top: 52vh;
 background: var(--amber)
 }
 .space-card h3 {
@@ -1118,21 +1136,31 @@ color: #99958c
 position: absolute;
 right: 26px;
 top: 26px;
-width: 52px;
-height: 52px;
+width: 120px;
+aspect-ratio: 1;
 transform: translateZ(36px)
 }
-.space-visual span {
+.space-visual i {
 position: absolute;
 inset: 0;
-border-top: 1px solid currentColor;
-border-right: 1px solid currentColor;
-opacity: .5
+border: 1px solid currentColor;
+border-radius: 50%
+}
+.space-visual i:nth-child(2) {
+inset: 20%;
+border-color: var(--amber)
+}
+.space-visual i:nth-child(3) {
+inset: 43%;
+background: currentColor
 }
 .space-card:nth-of-type(2) .space-visual {
-transform: translateZ(42px)
+transform: translateZ(42px) rotate(45deg)
 }
-.space-card:nth-of-type(3) .space-visual span {
+.space-card:nth-of-type(2) .space-visual i {
+border-radius: 0
+}
+.space-card:nth-of-type(3) .space-visual i:nth-child(2) {
 border-color: var(--ink)
 }
 .spatial-axis {
@@ -1187,82 +1215,47 @@ color: #969289;
 line-height: 1.7;
 max-width: 36ch
 }
-.signal {
-display: flex;
-align-items: center;
-gap: clamp(22px, 3vw, 40px);
-margin: 55px 0
-}
-.signal-orb {
-width: min(150px, 32vw);
+.dial {
+width: min(360px, 78vw);
 aspect-ratio: 1;
-flex: none;
+border: 1px solid rgba(237, 233, 223, .2);
 border-radius: 50%;
-background: radial-gradient(circle at 38% 35%, #f3c778, var(--amber) 30%, #533915 74%);
-box-shadow: 0 0 90px rgba(231, 169, 74, .22), 0 0 220px rgba(231, 169, 74, .22);
+display: grid;
+place-items: center;
+margin: 55px 0;
+position: relative;
 transition: box-shadow .7s
 }
-.signal-readout {
-display: flex;
-flex-direction: column;
-gap: 6px;
-min-width: 0
-}
-.signal-live {
-display: flex;
-align-items: center;
-gap: 8px;
-font-size: 9px;
-color: #969289
-}
-.signal-live i {
-width: 6px;
-height: 6px;
+.dial:before,
+.dial:after {
+content: "";
+position: absolute;
+border: 1px solid rgba(237, 233, 223, .11);
 border-radius: 50%;
-background: var(--amber);
-box-shadow: 0 0 12px rgba(231, 169, 74, .9);
-animation: signalPulse 2.4s ease-in-out infinite
+inset: 11%
 }
-@keyframes signalPulse {
-0%, 100% {
-opacity: 1
+.dial:after {
+inset: 24%
 }
-50% {
-opacity: .35
+.dial-core {
+width: 38%;
+aspect-ratio: 1;
+border-radius: 50%;
+background: radial-gradient(circle at 38% 35%, #f3c778, var(--amber) 28%, #533915 72%);
+box-shadow: 0 0 60px rgba(231, 169, 74, .25);
+display: grid;
+place-items: center;
+color: #171713;
+text-align: center
 }
+.dial-core b {
+font-size: 12px
 }
-@media(prefers-reduced-motion:reduce) {
-.signal-live i {
-animation: none
-}
-}
-.signal-readout b {
-font-size: clamp(40px, 4.2vw, 62px);
-font-weight: 500;
-letter-spacing: -.04em;
-line-height: 1
-}
-.signal-readout span {
-font: 10px var(--mono);
-letter-spacing: .14em;
-color: #969289
-}
-.signal-meter {
-width: min(220px, 100%);
-height: 2px;
-background: rgba(237, 233, 223, .16);
-border-radius: 2px;
-margin-top: 10px;
-overflow: hidden
-}
-.signal-meter i {
+.dial-core span {
 display: block;
-height: 100%;
-width: 30%;
-background: var(--amber);
-border-radius: 2px;
-box-shadow: 0 0 14px rgba(231, 169, 74, .8);
-transition: width .6s cubic-bezier(.22, 1, .36, 1)
+font: 9px var(--mono);
+letter-spacing: .12em;
+margin-top: 4px
 }
 .mode-buttons {
 display: flex;
@@ -1289,7 +1282,7 @@ border-color: var(--bone)
 .lab {
 height: 100svh;
 min-height: 780px;
-padding: clamp(62px, 8vh, 90px) 0 clamp(88px, 12vh, 130px);
+padding: clamp(62px, 8vh, 90px) 0;
 background: var(--bone);
 overflow: hidden
 }
@@ -1316,13 +1309,12 @@ line-height: 1.6
 display: flex;
 width: max-content;
 gap: 18px;
-padding: 0 clamp(20px, 4vw, 64px);
-padding-right: clamp(48px, 10vw, 140px)
+padding: 0 clamp(20px, 4vw, 64px)
 }
 .lab-card {
 width: min(68vw, 840px);
-height: min(50vh, 500px);
-min-height: 420px;
+height: min(55vh, 540px);
+min-height: 450px;
 background: var(--paper);
 border: 1px solid rgba(23, 23, 19, .2);
 padding: clamp(24px, 3vw, 40px);
@@ -1460,12 +1452,14 @@ letter-spacing: -.08em
 display: none
 }
 .kinetic {
+height: 240vh;
 background: var(--ink);
 color: var(--bone);
 position: relative
 }
 .kinetic-stage {
-position: relative;
+position: sticky;
+top: 0;
 height: 100svh;
 overflow: hidden;
 display: grid;
@@ -1484,9 +1478,7 @@ justify-content: space-between
 .kinetic-words {
 position: relative;
 width: 100%;
-height: 52vh;
-margin-bottom: 14vh;
-overflow: hidden;
+height: 70vh;
 transform-style: preserve-3d
 }
 .kinetic-word {
@@ -1510,26 +1502,9 @@ opacity: 1
 .kinetic-word:nth-child(2) {
 color: var(--amber)
 }
-.kinetic-word:nth-child(3),
-.kinetic-word.recede {
+.kinetic-word:nth-child(3) {
 color: transparent;
--webkit-text-stroke: 1.15px rgba(237, 233, 223, .82);
-font-size: clamp(70px, 16.2vw, 262px);
-line-height: .78;
-letter-spacing: -.08em;
-overflow: hidden
-}
-.recede-word {
-display: inline-block;
-clip-path: inset(0 0 .1em 0);
-padding-bottom: .02em
-}
-.r-streamlined {
-display: inline-block;
-transform: scaleX(.86);
-transform-origin: .12em 0;
-margin-right: -.04em;
-clip-path: inset(0 0 11% 0)
+-webkit-text-stroke: 1px rgba(237, 233, 223, .75)
 }
 .kinetic-beam {
 position: absolute;
@@ -1544,8 +1519,8 @@ transform: scaleX(.08)
 }
 .kinetic-caption {
 position: absolute;
-z-index: 5;
-bottom: 42px;
+z-index: 4;
+bottom: 50px;
 left: clamp(20px, 4vw, 64px);
 right: clamp(20px, 4vw, 64px);
 display: flex;
@@ -1916,6 +1891,10 @@ margin-left: auto
 .story {
 height: 270vh
 }
+.story-orbit {
+width: 110vw;
+right: -48vw
+}
 .story-panels {
 height: 275px
 }
@@ -2024,8 +2003,8 @@ width: 280px
 display: block;
 margin-top: 20px
 }
-.kinetic-stage {
-height: 100svh
+.kinetic {
+height: 210vh
 }
 .kinetic-word {
 font-size: 24vw
@@ -2105,8 +2084,7 @@ inset: 39vh auto auto 10vw !important
 inset: 47vh 8vw auto auto !important
 }
 .space-card:nth-of-type(3) {
-inset: 30vh auto auto 22vw !important;
-height: min(38vh, 390px)
+inset: 52vh auto auto 28vw !important
 }
 .spatial-axis {
 display: block
@@ -2156,8 +2134,7 @@ padding: 0 20px
 height: 330px
 }
 .space-visual {
-width: 42px;
-height: 42px
+width: 84px
 }
 .kinetic-caption p {
 max-width: 24ch
@@ -2168,8 +2145,8 @@ font-size: 28px
 .presence-ui {
 padding-inline: 20px
 }
-.signal {
-gap: 18px
+.dial {
+margin-inline: auto
 }
 .lab-head {
 display: block
@@ -2253,6 +2230,7 @@ height: auto;
 padding: 110px 20px 70px
 }
 .story-media,
+.story-orbit,
 .story-meter {
 display: none
 }
@@ -2389,10 +2367,10 @@ font-size: clamp(46px, 10vw, 82px)
 margin-left: 0;
 max-width: 34ch
 }
-.premise-object {
-width: min(34vw, 220px);
-right: 20px;
-top: 44%
+.premise-signal {
+width: 54vw;
+right: -14vw;
+top: 41%
 }
 .premise-stat {
 display: none
@@ -2416,8 +2394,10 @@ max-width: calc(100vw - 40px)
 .premise-beat h2 {
 font-size: 13vw
 }
-.premise-object {
-display: none
+.premise-signal {
+width: 72vw;
+right: -32vw;
+top: 38%
 }
 .premise-word {
 font-size: 55vw
@@ -2437,7 +2417,7 @@ padding: 110px 20px 80px
 }
 .premise-stage:before,
 .premise-word,
-.premise-object,
+.premise-signal,
 .premise-progress,
 .premise-stat {
 display: none

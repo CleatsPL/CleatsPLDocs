@@ -9,12 +9,7 @@ export default function Kinetic() {
         <div className="kinetic-words" aria-label="Ask. Sense. Recede.">
           <div className="kinetic-word">ASK</div>
           <div className="kinetic-word">SENSE</div>
-          <div className="kinetic-word recede">
-            <span className="recede-word">
-              <span className="r-streamlined">R</span>
-              ECEDE
-            </span>
-          </div>
+          <div className="kinetic-word">RECEDE</div>
         </div>
         <i className="kinetic-beam" aria-hidden="true" />
         <div className="kinetic-caption">
