@@ -14,6 +14,7 @@ export default function Hero({ onPointerMove, onPointerLeave }) {
   return (
     <section
       className="hero"
+      id="hero"
       onPointerMove={onPointerMove}
       onPointerLeave={onPointerLeave}
     >
@@ -37,9 +38,7 @@ export default function Hero({ onPointerMove, onPointerLeave }) {
             Cleats is built on one principle: a robot should never travel slower than its hardware physically permits.
             Full throttle until the brakes are mandatory.
           </p>
-          <a className="hero-cta" href="/system">
-            See the system <b>↘</b>
-          </a>
+
         </div>
       </div>
     </section>

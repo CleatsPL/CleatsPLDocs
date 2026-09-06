@@ -1,12 +1,12 @@
 export default function Home() {
   return (
-    <section className="final" id="reserve">
-      <div className="wrap final-top">
+    <section className="final" id="home">
+      <div className="wrap final-top" id="reserve">
         <span className="mono">Cleats / FTC path following</span>
       </div>
-      <h2 className="wrap">
+      <h2 className="wrap" id="lagging">
         Stop lagging.
-        <span>Start solving.</span>
+        <span id="solve">Start solving.</span>
       </h2>
       <div className="wrap final-bottom">
         <p>
