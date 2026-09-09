@@ -11,10 +11,10 @@ export default function App() {
   return (
     <main className="app-shell">
       <Nav />
-      <Hero />
-      <Premise />
-      <System />
       <Final />
+      <Premise />
+      <Hero />
+      <System />
       <Footer />
     </main>
   );
