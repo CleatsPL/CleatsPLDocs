@@ -1,9 +1,11 @@
+import Brand from './Brand.jsx';
+
 export default function Footer() {
   return (
     <footer>
       <div className="wrap foot">
         <a className="brand" href="/">
-          <span className="brandmark" aria-hidden="true" />
+          <Brand />
           <span>CLEATS</span>
         </a>
         <nav>

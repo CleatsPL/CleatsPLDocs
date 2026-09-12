@@ -82,21 +82,24 @@ background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='ht
 min-height: 100svh;
 position: relative;
 overflow: hidden;
-background: radial-gradient(120% 90% at 50% 40%, #17131c 0%, #0a0a0c 55%, var(--void) 100%);
+background: #0a0a0c url('/pranavvvs.webp') center / cover no-repeat;
 color: var(--bone);
 display: grid;
-place-items: center;
+align-items: center;
 isolation: isolate
 }
 .home-fibers {
 position: absolute;
 inset: 0;
-z-index: 0
+z-index: 0;
+mix-blend-mode: screen;
+opacity: .8;
+pointer-events: none
 }
 .ghost-fibers {
 width: 100%;
 height: 100%;
-background: radial-gradient(120% 90% at 50% 40%, #17131c 0%, #0a0a0c 55%, var(--void) 100%)
+background: none
 }
 .ghost-fibers canvas {
 display: block;
@@ -109,30 +112,35 @@ inset: 0;
 z-index: 1;
 pointer-events: none;
 background:
-radial-gradient(75% 55% at 50% 50%, rgba(6, 6, 7, .1) 0%, rgba(6, 6, 7, .62) 100%),
-linear-gradient(180deg, rgba(6, 6, 7, .55) 0%, transparent 22%, transparent 72%, rgba(6, 6, 7, .7) 100%)
+linear-gradient(180deg, rgba(6, 6, 7, .58) 0%, rgba(6, 6, 7, .16) 34%, rgba(6, 6, 7, .52) 100%),
+linear-gradient(90deg, rgba(6, 6, 7, .8) 0%, rgba(6, 6, 7, .38) 55%, rgba(6, 6, 7, .12) 100%)
 }
-.home-title {
+.home-content {
 position: relative;
 z-index: 2;
-margin: 0;
-padding: 110px clamp(16px, 4vw, 64px) 110px;
-text-align: center;
+width: 100%
+}
+.home-title {
+margin: 0 0 0 -56px;
+padding: 56px 90px 44px 56px;
+text-align: left;
 line-height: 1;
 color: #f7f4ec;
 filter: drop-shadow(0 0 0 rgba(242, 217, 138, 0));
-transition: filter .6s ease
+transition: filter .5s ease
 }
 .home-title:hover {
-filter: drop-shadow(0 10px 46px rgba(242, 217, 138, .3))
+filter: drop-shadow(0 10px 38px rgba(242, 217, 138, .42))
 }
 .home-title span {
 display: block;
 background: linear-gradient(105deg,
-  #f7f4ec 0%, #f7f4ec 34%,
-  #fff6d8 44%, #f2d98a 50%, #fff3c4 56%,
-  #f7f4ec 66%, #f7f4ec 100%);
-background-size: 300% 100%;
+  #f2ecdd 0%, #f2ecdd 30%,
+  #9a7420 40%,
+  #ffe9a3 48%, #fffdf0 52%, #f6dd8f 57%,
+  #9a7420 67%,
+  #f2ecdd 77%, #f2ecdd 100%);
+background-size: 250% 100%;
 background-position: 100% 0;
 -webkit-background-clip: text;
 background-clip: text;
@@ -140,7 +148,7 @@ background-clip: text;
 color: transparent
 }
 .home-title:hover span {
-animation: title-gleam 1.15s cubic-bezier(.25, .6, .3, 1)
+animation: title-gleam 1.05s cubic-bezier(.3, .55, .35, 1)
 }
 @keyframes title-gleam {
 from { background-position: 100% 0 }
@@ -160,7 +168,15 @@ font-weight: 400;
 letter-spacing: .3em;
 text-transform: uppercase;
 line-height: 1.4;
-padding-left: .3em
+padding-left: .06em
+}
+.home-lede {
+margin: 0;
+max-width: 42ch;
+color: rgba(244, 242, 238, .85);
+font-size: clamp(15px, 1.5vw, 21px);
+line-height: 1.65;
+text-shadow: 0 2px 18px rgba(6, 6, 7, .85)
 }
 @media (prefers-reduced-motion: reduce) {
 .home-title:hover span {
@@ -1086,8 +1102,7 @@ grid-template-columns: .82fr 1.65fr;
 gap: clamp(54px, 9vw, 150px)
 }
 .system-head {
-position: sticky;
-top: 110px;
+position: static;
 align-self: start
 }
 .system-head h2 {
@@ -2059,21 +2074,41 @@ padding-top: 23px
 max-width: 34ch;
 line-height: 1.55
 }
+.system-links {
+margin-top: clamp(40px, 6vw, 76px)
+}
+.links-head {
+color: var(--gold-bright);
+font-size: 14px;
+letter-spacing: .22em;
+text-transform: uppercase;
+margin-bottom: 18px
+}
+.links-note {
+color: #93938f;
+line-height: 1.7;
+max-width: 70ch;
+margin: 0 0 40px
+}
 .blank-grid {
 display: grid;
-grid-template-columns: repeat(4, minmax(0, 1fr));
-gap: 14px
+grid-template-columns: repeat(3, minmax(0, 1fr));
+gap: 32px
 }
 .blank-box {
-min-height: 210px;
-border: 1px solid rgba(212, 175, 55, .3);
-border-radius: 14px;
-background: none;
-transition: border-color .3s ease, background .3s ease
+min-height: 132px;
+border: 1px solid rgba(203, 166, 247, .25);
+border-radius: 32px;
+background: rgba(10, 10, 10, .5);
+opacity: .75;
+transition: opacity .3s ease, transform .3s ease, box-shadow .3s ease, background .3s ease, border-color .3s ease
 }
 .blank-box:hover {
-border-color: rgba(242, 217, 138, .7);
-background: rgba(244, 242, 238, .03)
+opacity: 1;
+transform: translateY(-4px);
+box-shadow: 0 12px 32px rgba(0, 0, 0, .4);
+background: rgba(10, 10, 10, .8);
+border-color: rgba(203, 166, 247, .5)
 }
 .round-cta {
 width: 124px;
@@ -2109,6 +2144,9 @@ display: flex;
 justify-content: space-between;
 align-items: center;
 gap: 30px
+}
+.foot .brand-logo {
+height: 32px
 }
 .foot nav {
 display: flex;
@@ -2566,10 +2604,11 @@ align-items: flex-start;
 gap: 24px
 }
 .blank-grid {
-grid-template-columns: repeat(2, minmax(0, 1fr))
+grid-template-columns: 1fr;
+gap: 20px
 }
 .blank-box {
-min-height: 150px
+min-height: 104px
 }
 .round-cta {
 width: 86px;

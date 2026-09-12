@@ -1,14 +1,11 @@
 import { useState } from 'react';
+import Brand from './Brand.jsx';
 
 const links = [
   { href: '#home', label: 'Home' },
   { href: '#premise', label: 'Features' },
   { href: '#hero', label: 'Overview' },
 ];
-
-// The uploaded logo lives at public/cleats-logo.png. Until that file exists we
-// keep the drawn brandmark glyph, so the nav never shows a broken image.
-const LOGO_SRC = '/cleats-logo.png';
 
 function handleAnchorClick(event, href) {
   if (!href || !href.startsWith('#')) return;
@@ -23,8 +20,6 @@ function handleAnchorClick(event, href) {
 }
 
 export default function Nav({ scrolled, menuOpen, onToggleMenu, onNavigate }) {
-  const [logoLoaded, setLogoLoaded] = useState(false);
-
   return (
     <header className={`nav${scrolled ? ' scrolled' : ''}`} id="nav">
       <div className="navin wrap">
@@ -37,16 +32,7 @@ export default function Nav({ scrolled, menuOpen, onToggleMenu, onNavigate }) {
             handleAnchorClick(event, '#home');
           }}
         >
-          {logoLoaded ? (
-            <img
-              className="brand-logo"
-              src={LOGO_SRC}
-              alt="Cleats logo"
-              onError={() => setLogoLoaded(false)}
-            />
-          ) : (
-            <span className="brandmark" aria-hidden="true" />
-          )}
+          <Brand />
           <span>CLEATS</span>
         </a>
         <nav className="navlinks" aria-label="Primary navigation">
