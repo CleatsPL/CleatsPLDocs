@@ -82,18 +82,25 @@ background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='ht
 min-height: 100svh;
 position: relative;
 overflow: hidden;
-background: #0a0a0c url('/pranavvvs.webp') center / cover no-repeat;
+background: #0a0a0c;
 color: var(--bone);
 display: grid;
 align-items: center;
 isolation: isolate
 }
-.home-fibers {
+.home-bg {
 position: absolute;
 inset: 0;
 z-index: 0;
+background: #0a0a0c url('/pranavvvs.webp') center / cover no-repeat;
+transform: scale(1.22)
+}
+.home-fibers {
+position: absolute;
+inset: 0;
+z-index: 1;
 mix-blend-mode: screen;
-opacity: .8;
+opacity: .18;
 pointer-events: none
 }
 .ghost-fibers {
@@ -109,7 +116,7 @@ height: 100%
 .home-veil {
 position: absolute;
 inset: 0;
-z-index: 1;
+z-index: 2;
 pointer-events: none;
 background:
 linear-gradient(180deg, rgba(6, 6, 7, .58) 0%, rgba(6, 6, 7, .16) 34%, rgba(6, 6, 7, .52) 100%),
@@ -117,7 +124,7 @@ linear-gradient(90deg, rgba(6, 6, 7, .8) 0%, rgba(6, 6, 7, .38) 55%, rgba(6, 6, 
 }
 .home-content {
 position: relative;
-z-index: 2;
+z-index: 3;
 width: 100%
 }
 .home-title {
@@ -155,10 +162,16 @@ from { background-position: 100% 0 }
 to { background-position: 0% 0 }
 }
 .title-main {
-font-size: clamp(30px, 8.2vw, 150px);
-font-weight: 500;
-line-height: .92;
-letter-spacing: -.045em
+font-size: clamp(28px, 6.8vw, 132px);
+font-weight: 700;
+line-height: 1;
+letter-spacing: -.02em;
+background-image: linear-gradient(105deg,
+  rgba(230, 57, 70, .92) 0%, rgba(230, 57, 70, .92) 30%,
+  rgba(212, 175, 55, .9) 40%,
+  #ffffff 48%, #ffffff 52%,
+  rgba(212, 175, 55, .9) 60%,
+  rgba(230, 57, 70, .92) 70%, rgba(230, 57, 70, .92) 100%)
 }
 .title-sub {
 margin-top: clamp(18px, 2.6vw, 42px);
@@ -1106,10 +1119,10 @@ position: static;
 align-self: start
 }
 .system-head h2 {
-font-size: clamp(42px, 5.4vw, 82px);
+font-size: clamp(34px, 4.4vw, 66px);
 font-weight: 400;
 line-height: .98;
-letter-spacing: -.06em;
+letter-spacing: -.02em;
 margin: 25px 0
 }
 .system-head p {
@@ -2110,6 +2123,48 @@ box-shadow: 0 12px 32px rgba(0, 0, 0, .4);
 background: rgba(10, 10, 10, .8);
 border-color: rgba(203, 166, 247, .5)
 }
+.link-box {
+padding: 24px;
+display: flex;
+flex-direction: column;
+gap: 14px
+}
+.box-top {
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 16px
+}
+.box-title {
+font-size: 20px;
+color: var(--bone);
+transition: color .3s ease
+}
+.link-box:hover .box-title {
+color: var(--gold-bright)
+}
+.box-arrow {
+width: 36px;
+height: 36px;
+border: 1px solid rgba(242, 217, 138, .5);
+border-radius: 50%;
+display: grid;
+place-items: center;
+color: var(--gold-bright);
+font-size: 15px;
+flex-shrink: 0;
+transition: .3s
+}
+.link-box:hover .box-arrow {
+background: var(--gold);
+border-color: var(--gold);
+color: #2b0508
+}
+.box-desc {
+color: #93938f;
+font-size: 14px;
+line-height: 1.55
+}
 .round-cta {
 width: 124px;
 aspect-ratio: 1;
@@ -2894,4 +2949,56 @@ a[href*="aura.build"] *,
 .aura-made,
 #aura-badge {
 display: none !important
+}
+
+/* ---- Typography: titles -> Rowdies, sub-headings -> Special Elite (body + captions unchanged) ---- */
+:root {
+--font-title: 'Rowdies', var(--sans);
+--font-heading: 'Special Elite', var(--mono)
+}
+h1,
+h2 {
+font-family: var(--font-title)
+}
+h3,
+h4,
+.links-head,
+.box-title {
+font-family: var(--font-heading)
+}
+
+/* ---- "Innovative" pages: white background, red + white foreground ---- */
+.idea-page {
+min-height: 100svh;
+background: #fff;
+display: grid;
+place-items: center;
+padding: 120px 0
+}
+.idea-title {
+margin: 0;
+font-size: clamp(38px, 7vw, 108px);
+font-weight: 700;
+line-height: 1.05;
+letter-spacing: -.01em
+}
+.idea-red {
+color: var(--red)
+}
+.idea-white {
+color: #fff;
+-webkit-text-stroke: 2.5px var(--red);
+text-shadow: 0 0 1px rgba(193, 18, 31, .55)
+}
+@media (max-width: 540px) {
+.idea-title {
+font-size: clamp(30px, 9.5vw, 48px)
+}
+.idea-white {
+-webkit-text-stroke: 1.5px var(--red)
+}
+.home-title {
+margin-left: 0;
+padding: 48px 20px 36px
+}
 }

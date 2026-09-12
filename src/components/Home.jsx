@@ -3,6 +3,7 @@ import GhostFibers from './GhostFibers.jsx';
 export default function Home() {
   return (
     <section className="home-hero" id="home">
+      <div className="home-bg" aria-hidden="true" />
       <div className="home-fibers">
         <GhostFibers />
       </div>

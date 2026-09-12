@@ -6,6 +6,8 @@ import System from './components/System.jsx';
 import Final from './components/Home.jsx';
 
 import Footer from './components/Footer.jsx';
+import Algorithm from './components/Algorithm.jsx';
+import Planning from './components/Planning.jsx';
 
 
 export default function App() {
@@ -66,6 +68,8 @@ export default function App() {
       <Final />
       <System />
       <Premise />
+      <Algorithm />
+      <Planning />
       <Hero />
       <Footer />
     </main>
