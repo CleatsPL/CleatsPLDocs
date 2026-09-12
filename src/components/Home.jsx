@@ -5,7 +5,7 @@ export default function Home() {
         <span className="mono">Cleats / FTC path following</span>
       </div>
       <h2 className="wrap" id="lagging">
-        Stop lagging.
+        Stop lagging.{' '}
         <span id="solve">Start solving.</span>
       </h2>
       <div className="wrap final-bottom">
@@ -14,7 +14,9 @@ export default function Home() {
           <br />
           and let the library find your robot’s real limits.
         </p>
-
+        <a className="final-start" href="#system">
+          Get started <b>↘</b>
+        </a>
       </div>
     </section>
   );
