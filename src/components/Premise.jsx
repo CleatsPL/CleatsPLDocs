@@ -33,7 +33,7 @@ export default function Premise() {
     <section className="intro" id="premise">
       <div className="premise-stage">
         <div className="premise-top">
-          <div className="section-tag mono">01 / Premise</div>
+          <div className="section-tag mono">03 / Premise</div>
           <span className="premise-step mono" id="premiseStep">
             01 — The lag
           </span>

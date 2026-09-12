@@ -26,6 +26,7 @@ export default function Hero({ onPointerMove, onPointerLeave }) {
       <div className="hero-light" aria-hidden="true" />
       <div className="hero-cast" aria-hidden="true" />
       <div className="hero-copy">
+        <div className="section-tag mono">06 / Overview</div>
         <div className="eyebrow mono">
           <i className="pulse" /> FTC path following / time-optimal control
         </div>

@@ -1,3 +1,5 @@
+import Particles from './Particles.jsx';
+
 const links = [
   {
     title: 'Cleats',
@@ -19,9 +21,12 @@ const links = [
 export default function System() {
   return (
     <section className="system" id="system">
+      <div className="system-particles" aria-hidden="true">
+        <Particles />
+      </div>
       <div className="wrap">
         <div className="system-head reveal">
-          <div className="section-tag mono">04 / How it works</div>
+          <div className="section-tag mono">02 / How it works</div>
           <h2>Quick Access Documentation Links</h2>
         </div>
         <div className="system-links reveal">

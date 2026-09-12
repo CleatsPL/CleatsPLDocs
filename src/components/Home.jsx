@@ -9,6 +9,7 @@ export default function Home() {
       </div>
       <div className="home-veil" aria-hidden="true" />
       <div className="wrap home-content">
+        <div className="section-tag mono home-tag">01 / Home</div>
         <h1 className="home-title">
           <span className="title-main">Cleats Pathing Library</span>
           <span className="title-sub">Where Doubt Doesn&rsquo;t Exist</span>

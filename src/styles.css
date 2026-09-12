@@ -100,7 +100,7 @@ position: absolute;
 inset: 0;
 z-index: 1;
 mix-blend-mode: screen;
-opacity: .18;
+opacity: .3;
 pointer-events: none
 }
 .ghost-fibers {
@@ -509,6 +509,9 @@ display: flex;
 align-items: center;
 gap: 12px;
 margin-bottom: 40px
+}
+.hero-copy .section-tag {
+margin-bottom: 26px
 }
 .pulse {
 width: 7px;
@@ -1108,6 +1111,26 @@ background: linear-gradient(180deg, var(--ink), var(--void));
 color: var(--bone);
 padding-block: clamp(90px, 11vw, 170px);
 position: relative
+}
+.system-particles {
+position: absolute;
+inset: 0;
+z-index: 0;
+overflow: hidden;
+pointer-events: none
+}
+.particles-field {
+width: 100%;
+height: 100%
+}
+.particles-field canvas {
+display: block;
+width: 100%;
+height: 100%
+}
+.system > .wrap {
+position: relative;
+z-index: 1
 }
 .system-grid {
 display: grid;
@@ -2971,12 +2994,17 @@ font-family: var(--font-heading)
 .idea-page {
 min-height: 100svh;
 background: #fff;
-display: grid;
-place-items: center;
+display: flex;
+flex-direction: column;
+justify-content: center;
 padding: 120px 0
 }
+.idea-inner {
+width: 100%
+}
 .idea-title {
-margin: 0;
+margin: clamp(40px, 8vh, 90px) 0 0;
+text-align: center;
 font-size: clamp(38px, 7vw, 108px);
 font-weight: 700;
 line-height: 1.05;
@@ -3002,3 +3030,4 @@ margin-left: 0;
 padding: 48px 20px 36px
 }
 }
+
