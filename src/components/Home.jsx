@@ -8,9 +8,8 @@ export default function Home() {
       </div>
       <div className="home-veil" aria-hidden="true" />
       <h1 className="home-title">
-        <span>Cleats</span>
-        <span className="accent">Pathing</span>
-        <span>Library</span>
+        <span className="title-main">Cleats Pathing Library</span>
+        <span className="title-sub">Where Doubt Doesn&rsquo;t Exist</span>
       </h1>
     </section>
   );

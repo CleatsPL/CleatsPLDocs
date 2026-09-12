@@ -116,22 +116,59 @@ linear-gradient(180deg, rgba(6, 6, 7, .55) 0%, transparent 22%, transparent 72%,
 position: relative;
 z-index: 2;
 margin: 0;
-padding: 120px clamp(16px, 4vw, 64px) 120px;
+padding: 110px clamp(16px, 4vw, 64px) 110px;
 text-align: center;
-font-size: clamp(46px, 12.5vw, 210px);
-font-weight: 500;
-line-height: .82;
-letter-spacing: -.055em;
-text-transform: uppercase;
+line-height: 1;
 color: #f7f4ec;
-text-shadow: 0 18px 70px rgba(0, 0, 0, .6);
-pointer-events: none
+filter: drop-shadow(0 0 0 rgba(242, 217, 138, 0));
+transition: filter .6s ease
+}
+.home-title:hover {
+filter: drop-shadow(0 10px 46px rgba(242, 217, 138, .3))
 }
 .home-title span {
-display: block
+display: block;
+background: linear-gradient(105deg,
+  #f7f4ec 0%, #f7f4ec 34%,
+  #fff6d8 44%, #f2d98a 50%, #fff3c4 56%,
+  #f7f4ec 66%, #f7f4ec 100%);
+background-size: 300% 100%;
+background-position: 100% 0;
+-webkit-background-clip: text;
+background-clip: text;
+-webkit-text-fill-color: transparent;
+color: transparent
 }
-.home-title .accent {
-color: var(--gold-bright)
+.home-title:hover span {
+animation: title-gleam 1.15s cubic-bezier(.25, .6, .3, 1)
+}
+@keyframes title-gleam {
+from { background-position: 100% 0 }
+to { background-position: 0% 0 }
+}
+.title-main {
+font-size: clamp(30px, 8.2vw, 150px);
+font-weight: 500;
+line-height: .92;
+letter-spacing: -.045em
+}
+.title-sub {
+margin-top: clamp(18px, 2.6vw, 42px);
+font-family: var(--mono);
+font-size: clamp(12px, 1.7vw, 28px);
+font-weight: 400;
+letter-spacing: .3em;
+text-transform: uppercase;
+line-height: 1.4;
+padding-left: .3em
+}
+@media (prefers-reduced-motion: reduce) {
+.home-title:hover span {
+animation: none
+}
+.home-title:hover {
+filter: none
+}
 }
 
 .scroll-progress {
@@ -211,6 +248,13 @@ border: 1px solid currentColor;
 border-radius: 50%;
 position: relative;
 flex-shrink: 0
+}
+.brand-logo {
+height: 38px;
+width: auto;
+flex-shrink: 0;
+display: block;
+border-radius: 6px
 }
 .brandmark:before {
 content: "";
