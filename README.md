@@ -8,6 +8,22 @@ Cleats treats following as a time-optimal control problem and solves it directly
 drivetrain is either at its acceleration limit or its deceleration limit and effectively
 nowhere in between.
 
+## Design system
+
+- **Palette** — black (`#050505`), red (`#c1121f`), gold (`#d4af37`). No neon.
+- **Type** — DM Sans for display, Space Mono for kickers, labels and HUD elements.
+- **Motion** — GSAP + ScrollTrigger (hero intro, premise scrub), pointer parallax,
+  magnetic CTAs, IntersectionObserver reveals. Honors `prefers-reduced-motion`.
+- **Navigation** — the React Bits `CardNav` (black/red/gold themed) on every page.
+
+## Pages
+
+| Route           | What it is                                                                                       |
+| --------------- | ------------------------------------------------------------------------------------------------ |
+| `/`             | The introduction — hero (video-ready), premise, the stack + InfiniteSpiral, highlights, system, reference set (DepthCarousel + TiltedCards), final CTA. |
+| `/get-started`  | Docs quick links in the Pedro-Pathing style — Hyperspeed WebGL background, floating logo marks, four BorderGlow bubbles: **Intro**, **Cleats**, **Dribble**, **PlayMaker**, plus coming-soon doc chips. |
+| `/team`         | The crew — group photo (TiltedCard), per-member ProfileCards (Topography background). Clicking a member opens a popup with their full story. |
+
 ## Highlights
 
 - **Quintic Hermite splines** — matches position, tangent and curvature at every waypoint,
@@ -38,9 +54,38 @@ Then open the local URL Vite prints (default `http://localhost:5173`).
 
 ```
 src/
-  App.jsx
-  styles.css
-  hooks/useEchoMotion.js   # GSAP + ScrollTrigger
-  components/              # page sections
-public/assets/             # imagery
+  App.jsx                # router, global chrome (noise, progress, cursor orb), card nav shell
+  styles.css             # design system (black/red/gold tokens + all section styles)
+  data/
+    site.js              # all intro copy (verbatim) + nav/quick-link data
+    team.js              # team roster — edit names/handles/bios here
+  hooks/
+    useIntroMotion.js    # GSAP: hero intro timeline, premise scrub
+    useReveals.js        # lightweight scroll reveals for other pages
+  components/            # page sections + chrome + team modal
+  pages/
+    IntroPage.jsx        # /
+    GetStartedPage.jsx   # /get-started (Hyperspeed + BorderGlow bubbles)
+    TeamPage.jsx         # /team (ProfileCard + popup)
+  reactbits/             # React Bits components (CardNav, Hyperspeed, Topography,
+                         # InfiniteSpiral, TiltedCard, DepthCarousel, BorderGlow, ProfileCard)
+public/
+  assets/                # imagery + logo mark (logo.svg)
+  team/                  # per-member crops of the group photo
 ```
+
+### Dropping in a hero video later
+
+`src/components/Hero.jsx` exposes a `HERO_MEDIA` constant. Swap it to:
+
+```js
+const HERO_MEDIA = { type: 'video', src: '/assets/intro.mp4', poster: '/assets/echo01-hero.jpg' };
+```
+
+and the same animated text intro plays over the video.
+
+### Team page
+
+Members 02 and 03 in `src/data/team.js` are placeholders — drop in real names, handles and
+bios and the cards and popups update automatically. Photos are crops of the group photo in
+`public/pranavvvs.webp` (see `public/team/`).
